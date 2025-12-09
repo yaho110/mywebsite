@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ABOUT US｜津曲正俊研究会</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo">
+      <span class="logo-en">Keio University Tsumagari Seminar</span>
+      <span class="logo-jp">慶應義塾大学経済学部 津曲研究会</span>
+    </div>
+
+    <!-- ハンバーガーボタンを追加 -->
+    <button class="nav-toggle" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- nav に nav クラスを追加（JS用） -->
+    <nav class="global-nav nav">
+      <a href="index.html">HOME</a>
+      <a href="news.html">NEWS</a>
+      <a href="about.html" class="nav-current">ABOUT US</a>
+      <a href="professor.html">PROFESSOR</a>
+      <a href="recruit.html">RECRUIT</a>
+    </nav>
+  </div>
+</header>
+
+<div class="nav-overlay"></div>
+
+
+<!-- About ヒーロー -->
+<section class="page-hero page-hero-about">
+  <div class="container page-hero-inner">
+    <p class="page-label">津曲ゼミについて</p>
+    <h1 class="page-title">ABOUT US</h1>
+    <p class="page-lead">
+      ゼミで大切にしている学び方と、年間の活動を紹介します
+    </p>
+  </div>
+</section>
+
+
+
+<!-- 「どんなゼミ？」説明（トップページの発展版） -->
+<section class="section section-about">
+  <div class="container about-intro">
+
+    <p class="section-eyebrow">ABOUT THE SEMINAR</p>
+
+    <h2 class="about-title">
+      津曲ゼミって<br>
+      どんなゼミ？
+    </h2>
+
+    <p class="about-lead">
+      一見難しそうに見えるミクロ経済学やゲーム理論を、<br>
+      日常のナゾとして捉え、「なぜそうなるのか」を徹底的に考えます。
+    </p>    <div class="feature-grid">
+      <div class="feature-card feature-with-image">
+        <div class="feature-image">
+          <img src="images/theory1.jpg" alt="理論を学ぶ">
+        </div>
+        <div class="feature-content">
+          <h3>理論を学ぶ</h3>
+          <p>
+          ゲーム理論、行動経済学、マッチング理論など、最先端の理論を駆使し<br>
+         「人はなぜその選択をするのか」「社会の仕組みはどう設計するべきか」を構造的に理解します。
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-card feature-with-image">
+        <div class="feature-image">
+          <img src="images/theory2.jpg" alt="データ分析">
+        </div>
+        <div class="feature-content">
+         <h3>リアルな世界を検証する</h3>
+    <p>
+      統計ソフトRをメインツールとして使用。<br>
+       実社会から得られたデータを扱い、理論モデルの妥当性や新たな真実を<br>
+データドリブンな手法で厳密に検証・証明していきます。
+
+          </p>
+        </div>
+      </div>
+
+      <div class="feature-card feature-with-image">
+        <div class="feature-image">
+          <img src="images/theory3.jpg" alt="ゼミの進め方">
+        </div>
+        <div class="feature-content">
+         <h3>発信と探求の場</h3>
+    <p>
+      学生が主体となるプレゼンテーションやディスカッション形式を採用<br>
+      自分の言葉でロジックを説明し、他者との対話を通じて<br>知的探求を深く、多角的に進めます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-quiz">
+  <div class="container quiz-inner">
+
+    <h2 class="quiz-title">あなたの直感は、どこで裏切られるか</h2>
+    <p class="quiz-lead">
+      行動経済学・ゲーム理論・マッチング理論を題材に、<br>
+      “なぜ？” を小さなクイズで体験してみよう。
+    </p>
+
+    <div class="quiz-grid">
+
+      <!-- Q1 行動経済学 -->
+      <div class="quiz-card" data-answer="A">
+        <div class="quiz-header">
+          <p class="quiz-number">Q1</p>
+        </div>
+
+        <p class="quiz-question">
+          次のうち、購買意欲が高まるのはどちら？
+        </p>
+
+        <div class="quiz-choices">
+          <button class="quiz-choice" data-choice="A">
+            定価10,000円 → 期間限定 7,000円
+          </button>
+          <button class="quiz-choice" data-choice="B">
+            最初から 7,000円
+          </button>
+        </div>
+
+        <div class="quiz-result">
+          <p class="quiz-answer"></p>
+          <p class="quiz-explain">
+            人は「価格そのもの」ではなく、
+            <strong>どこから下がったか（参照点）</strong>で判断します。<br>
+            これを <strong>参照点依存・損失回避</strong> と呼びます。
+          </p>
+        </div>
+      </div>
+
+      <!-- Q2 ゲーム理論 -->
+      <div class="quiz-card" data-answer="B">
+        <div class="quiz-header">
+          <p class="quiz-number">Q2</p>
+        </div>
+
+        <p class="quiz-question">
+          あなたと相手は同時に選択します。<br>
+          最も合理的な行動は？
+        </p>
+
+        <div class="quiz-choices">
+          <button class="quiz-choice" data-choice="A">
+            協力する（お互いそこそこの利益）
+          </button>
+          <button class="quiz-choice" data-choice="B">
+            裏切る（相手が協力すれば最大利益）
+          </button>
+        </div>
+
+        <div class="quiz-result">
+          <p class="quiz-answer"></p>
+          <p class="quiz-explain">
+            これは<strong>囚人のジレンマ</strong>。<br>
+            相手が何を選んでも「裏切り」が合理的になり、<br>
+            結果として<strong>全員が損をする</strong>状況になります。<br><br>
+            津曲ゼミでは、こうしたジレンマを避ける
+            <strong>ルール設計</strong>を理論から考えます。
+          </p>
+        </div>
+      </div>
+
+      <!-- Q3 マッチング理論 -->
+      <div class="quiz-card" data-answer="B">
+        <div class="quiz-header">
+          <p class="quiz-number">Q3</p>
+        </div>
+
+        <p class="quiz-question">
+          希望順位を書く制度で、<br>
+          一番“得”なのはどっち？
+        </p>
+
+        <div class="quiz-choices">
+          <button class="quiz-choice" data-choice="A">
+            本音を隠して、落とされなさそうな所を書く
+          </button>
+          <button class="quiz-choice" data-choice="B">
+            本当に行きたい順に、正直に書く
+          </button>
+        </div>
+
+        <div class="quiz-result">
+          <p class="quiz-answer"></p>
+          <p class="quiz-explain">
+            直感的には A を選びがち。<br>
+            でも<strong>安定マッチング理論</strong>では、
+            あるタイプの制度では<br>
+            <strong>正直に出すことが最適戦略</strong>になります。<br><br>
+            医師研修先・大学進学・保育園配属など、  
+            実際の制度にも使われているアイデアです。
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /.quiz-grid -->
+  </div><!-- /.quiz-inner -->
+</section>
+
+<section class="section about-gallery">
+  <div class="container">
+
+    <div class="section-header section-header-left">
+      <p class="section-eyebrow">GALLERY</p>
+      <h2 class="section-title">津曲ゼミの雰囲気</h2>
+      <p class="section-lead">
+        日々のゼミから合宿、OB・OG会まで<br>
+        津曲ゼミの1年を写真で紹介します
+      </p>
+    </div>
+
+    <div class="about-gallery-grid">
+      <figure class="about-gallery-item">
+        <img src="images/about-seminar-1.jpg" alt="普段のゼミ">
+        <figcaption>
+          <span class="tag">SEMINAR</span>
+          <h3>普段のゼミ</h3>
+          <p>論文を読み、議論を深めています！</p>
+        </figcaption>
+      </figure>
+
+      <figure class="about-gallery-item">
+        <img src="images/about-camp-1.jpg" alt="ゼミ合宿">
+        <figcaption>
+          <span class="tag">CAMP</span>
+          <h3>ゼミ合宿</h3>
+          <p>三田論・卒論の中間発表を実施！</p>
+        </figcaption>
+      </figure>
+
+      <figure class="about-gallery-item">
+        <img src="images/about-party-1.jpg" alt="ゼミ後の飲み">
+        <figcaption>
+          <span class="tag">AFTER SEMINAR</span>
+          <h3>ゼミ後の飲み</h3>
+          <p>学年を越えてフラットに交流！</p>
+        </figcaption>
+      </figure>
+
+      <figure class="about-gallery-item">
+        <img src="images/about-obog.jpg" alt="OB・OG会">
+        <figcaption>
+          <span class="tag">OB / OG</span>
+          <h3>OB・OG会</h3>
+          <p>進路や研究の視野が広がる貴重な機会！</p>
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- 年間スケジュール（年表風） -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">年間スケジュール</h2>
+    <p class="section-lead">
+      三田論・合宿・インゼミ・OB・OG会など、1年間のおおまかな流れです。
+    </p>
+
+    <ol class="year-timeline">
+
+      <li class="timeline-item">
+        <div class="timeline-month">4月</div>
+        <div class="timeline-body">
+          <h3>ゼミ開始</h3>
+          <p>
+            新しいメンバーを迎えてゼミがスタートします。自己紹介やガイダンスを行い、
+            年間のテーマや三田論の方向性を共有します。
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-month">5〜7月</div>
+        <div class="timeline-body">
+          <h3>三田論キックオフ</h3>
+          <p>
+            各パート（行動経済学・マッチング理論など）に分かれ、三田祭での論文発表に向けて
+            テーマ設定・先行研究の整理・データ収集を進めます。週1回のゼミに加えて、パートごとの
+            打ち合わせも増えていきます。
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-month">8月</div>
+        <div class="timeline-body">
+          <h3>インゼミ（対外合同ゼミ）</h3>
+          <p>
+            例年8月ごろに、明治学院大学・坂本陽子研究会とのインゼミを行っています。
+            坂本先生は津曲ゼミ5期生で、OB・OGとしてもつながりの深い先生です。
+            今年度は実施しませんでしたが、他大学の視点に触れる貴重な機会です。
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-month">9月</div>
+        <div class="timeline-body">
+          <h3>ゼミ合宿</h3>
+          <p>
+            夏休みの終わりに、パートゼミの中間発表・卒業論文の中間報告を兼ねたゼミ合宿を行います。
+            三田論の進捗をがっつり共有し合い、夜はディスカッションや懇親会で距離も一気に縮まります。
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-month">11月</div>
+        <div class="timeline-body">
+          <h3>三田論発表 ＆ OB・OG会</h3>
+          <p>
+            三田祭で各パートが論文発表を行います。1年間の集大成として、教員・OB・OG・一般の来場者に
+            向けて成果をプレゼンします。<br>
+            同時期にOB・OG会も開催され、卒業生とのネットワークやキャリアの話を聞ける機会にもなっています。
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-month">12〜2月</div>
+        <div class="timeline-body">
+          <h3>卒論・応用テーマ</h3>
+          <p>
+            4年生は卒業論文、3年生は応用的なテーマに取り組みます。三田論で培った
+            「問いの立て方」「分析の進め方」をベースに、各自の関心を掘り下げていきます。
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-month">通年</div>
+        <div class="timeline-body">
+          <h3>通常ゼミ・輪読</h3>
+          <p>
+            通年でミクロ経済学・ゲーム理論・行動経済学などの輪読や論文紹介を行います。
+            毎週のゼミの中で「理論」「実証」「制度設計」の3つの視点を行き来しながら、
+            自分なりの問いと答えを磨いていきます。
+          </p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <!-- 左：ロゴ・著作権 -->
+    <div class="footer-left">
+      <p class="footer-logo-en">Keio University Tsumagari Seminar</p>
+      <p class="footer-logo-jp">慶應義塾大学経済学部 津曲研究会</p>
+      <p class="footer-copy">© 2025 津曲正俊研究会</p>
+    </div>
+
+    <!-- 中央：ナビゲーション -->
+    <nav class="footer-nav">
+      <a href="index.html">HOME</a>
+      <a href="news.html">NEWS</a>
+      <a href="about.html">ABOUT US</a>
+      <a href="professor.html">PROFESSOR</a>
+      <a href="recruit.html">RECRUIT</a>
+    </nav>
+
+    <!-- 右：Instagram -->
+    <div class="footer-sns">
+      <!-- Instagram の URL は自分のアカウントに書き換えてね -->
+      <a href="https://www.instagram.com/tsumagari_seminar_2025?igsh=MTl6cGx6N3Q2cXZwcA%3D%3D&utm_source=qr"
+         target="_blank"
+         rel="noopener"
+         class="footer-instagram"
+         aria-label="Instagram">
+        <!-- シンプルなインスタ風アイコン（SVG） -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <circle cx="17.2" cy="6.8" r="1.3"></circle>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="nav-overlay"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

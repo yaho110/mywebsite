@@ -1,0 +1,2004 @@
+/* =========================
+  メインページ
+========================= */
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #222;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;  /* ← 縦並びはここだけ */
+  text-decoration: none;
+}
+
+
+.logo-en {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.logo-jp {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hero {
+  position: relative;
+  padding: 120px 0;
+  min-height: 60vh;
+  background-image: url("images/hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 88px 0;
+    min-height: 50vh;               /* 少し低く */
+    background-position: center 40%;
+  }
+}
+
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75),   /* 左をしっかり暗くする */
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15)
+  );
+  z-index: 1;
+}
+
+.hero-overlay {
+  /* background は消す */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+
+.hero-overlay {
+  justify-content: flex-start;
+}
+
+
+.hero-inner {
+  color: #fff;
+  max-width: 520px;      /* ← 文字幅を制限 */
+  margin-left: 120px;   /* ← 今より左に */
+  margin-top: 135px;     /* ← 下に下げる（ここがポイント） */
+}
+
+.hero-inner h1 {
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+
+.hero-tag {
+  font-size: 1.4rem;       /* 1.2 → 1.4 くらい */
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  opacity: 0.95;
+}
+
+.hero-inner h1 {
+  font-size: 3.6rem;       /* 3.2 → 3.6 にアップ */
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.6);  /* 影を少し強めに */
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  opacity: 0.95;
+}
+
+
+.section {
+  padding: 100px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.section-lead {
+  font-size: 1.05rem;
+  margin-bottom: 48px;
+}
+
+/* 「津曲ゼミってどんなゼミ？」セクション全体を中央寄せ */
+.section-about-inner {
+  text-align: center;
+}
+
+/* 見出しを少しだけ大きめ＆余白 */
+.section-title-center {
+  margin-bottom: 16px;
+}
+
+/* → MORE ボタン */
+.more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  
+  
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  color: #333;
+  background: #ffffff;
+  text-decoration: none;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s ease, color 0.2s ease,
+              box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* hover 時のちょっとした動き */
+.more-btn:hover {
+  background: #111;
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   TOPページ用：直近 NEWS 3件
+========================= */
+
+.top-news {
+  margin: 32px auto 80px;
+  max-width: 780px;
+  text-align: left;
+}
+
+.top-news-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.top-news-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: #999;
+}
+
+.top-news-link {
+  font-size: 0.85rem;
+  color: #666;
+  text-decoration: none;
+}
+
+.top-news-link:hover {
+  text-decoration: underline;
+}
+
+/* リスト全体 */
+#top-news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;   /* ← ここもついでに広げる */
+}
+
+
+/* 各ニュース行 */
+.top-news-item {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #fff;
+  text-decoration: none;
+  color: #222;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  transition: background 0.15s ease,
+              box-shadow 0.15s ease,
+              transform 0.15s ease;
+}
+
+.top-news-item:hover {
+  background: #f7f9fb;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.top-news-item time {
+  font-size: 0.85rem;
+  color: #888;
+  min-width: 7em;  /* 日付の幅をそろえる */
+}
+
+.top-news-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+
+.seminar-visual {
+  width: 100%;
+  height: 420px;
+  background: url("images/herosub.png") center/cover no-repeat;
+  margin: 80px 0;
+}
+
+.seminar-visual-overlay {
+  background: rgba(20,20,20,0.65);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.seminar-visual-inner {
+  max-width: 1100px;
+  padding: 0 24px;
+  color: #fff;
+}
+
+.visual-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.85;
+}
+
+.seminar-visual-inner h2 {
+  font-size: 2.4rem;
+  margin: 20px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  max-width: 800px;      /* 横幅をあえて抑える */
+  margin: 0 auto;
+}
+
+
+.feature-card {
+  padding: 36px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: #555;
+}
+
+.footer {
+  padding: 40px 0;
+  background: #fafafa;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0 24px;
+    max-width: none;
+  }
+
+  .hero-overlay {
+    justify-content: center;
+  }
+
+  .hero-tag {
+    font-size: 1.0rem;
+  }
+
+  .hero-inner h1 {
+    font-size: 2.4rem;
+  }
+}
+
+.latest-news {
+  margin-bottom: 80px;
+}
+
+/* =========================
+   フッター
+========================= */
+
+.site-footer {
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  padding: 28px 0 24px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.footer-logo-en {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.footer-logo-jp {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: #999;
+}
+
+/* ナビ部分 */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #555;
+  position: relative;
+}
+
+.footer-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: #111;
+  transition: width 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: #111;
+}
+
+.footer-nav a:hover::after {
+  width: 100%;
+}
+
+/* Instagram アイコン */
+.footer-sns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer-instagram {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #555;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease,
+              transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-instagram svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+.footer-instagram:hover {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-nav {
+    justify-content: flex-start;
+  }
+
+  .footer-sns {
+    justify-content: flex-start;
+  }
+}
+
+
+
+/* 既存のCSSがここまで */
+
+/* =========================
+   featureカード（画像付き）
+========================= */
+.feature-with-image {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.feature-image {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #f2f2f2;
+}
+
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.feature-content p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .feature-with-image {
+    flex-direction: column;
+    align-items: flex-start;}
+}
+
+/* =========================
+   ヘッダーナビゲーション
+========================= */
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.global-nav {
+  display: flex;
+  gap: 32px;
+}
+
+.global-nav a {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: #222;
+  position: relative;
+}
+
+.global-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: #222;
+  transition: width 0.3s ease;
+}
+
+.global-nav a:hover::after {
+  width: 100%;
+}
+
+/* ハンバーガー */
+.nav-toggle {
+  display: none;
+  width: 32px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-toggle span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #222;
+  transition: 0.25s;
+}
+
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 10px; }
+.nav-toggle span:nth-child(3) { top: 20px; }
+
+.nav-toggle.open span:nth-child(1) {
+  top: 10px;
+  transform: rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+
+
+/* =========================
+   スマホ用
+========================= */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .global-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 16px;
+    left: 16px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(15,23,42,.16);
+    flex-direction: column;
+    padding: 12px 0;
+  }
+
+  .global-nav.open {
+    display: flex;
+  }
+
+  .global-nav a {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* モーダル用 背景 */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 900;
+}
+
+/* 表示状態 */
+.nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ナビは overlay より前に */
+.global-nav {
+  z-index: 1000;
+}
+
+.nav-toggle {
+  z-index: 1001;
+}
+
+
+/* =========================
+   ページヒーロー（共通・色）
+========================= */
+
+.page-hero {
+  background: linear-gradient(135deg, #2e3136, #4b4f56);
+  color: #fff;
+  padding: 80px 0 70px;
+  position: relative;
+}
+
+.page-hero-inner {
+  max-width: 900px;
+}
+
+.page-hero-tag {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  opacity: 0.85;
+}
+
+.page-title {
+  font-size: 2.4rem;
+  margin: 16px 0;
+}
+
+.page-hero-lead {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+
+/* =========================
+   教授ページ レイアウト
+========================= */
+
+.page-hero.page-hero-professor {
+  background-image: url("images/professorhero.png");
+  background-size: cover;
+  background-position: center top; /* PC は上寄せ */
+  color: #111;
+}
+
+/* スマホだけ位置だけいじる */
+@media (max-width: 768px) {
+  .page-hero.page-hero-professor {
+    background-position: center center; /* 真ん中で切り抜く */
+  }
+}
+
+
+.professor-photo {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #e5e5e5;
+}
+
+.professor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.professor-profile {
+  flex: 1;
+}
+
+.professor-name {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.professor-name span {
+  font-size: 0.85rem;
+  color: #777;
+  margin-left: 8px;
+}
+
+.professor-title {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.professor-meta {
+  display: grid;
+  gap: 8px 24px;
+}
+
+.professor-meta div {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  column-gap: 12px;
+  row-gap: 4px;
+}
+
+.professor-meta dt {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.professor-meta dd {
+  font-size: 0.95rem;
+}
+
+/* セクション内の見出しやテキスト */
+
+.professor-section {
+  margin-top: 36px;
+}
+
+.professor-heading {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.professor-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.professor-list li {
+  margin-bottom: 4px;
+}
+
+.professor-text {
+  margin-bottom: 18px;
+}
+
+
+.professor-block {
+  margin-bottom: 96px;           /* セクション間の余白 */
+}
+
+/* 見出し */
+.professor-section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* 見出しの下に細いライン（効く） */
+.professor-section-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: #111;
+  margin-top: 12px;
+}
+
+/* 見出し直下の説明文 */
+.professor-lead {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 0px;   /* ← ここが「余白足りない」問題の核心 */
+  line-height: 1.8;
+}
+
+/* 本文全体を少し囲う */
+.professor-content {
+  background: #fafafa;
+  border-radius: 16px;
+  padding: 40px 48px;
+  line-height: 1.9;
+}
+
+
+
+/* 論文リスト */
+
+.paper-list li {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
+
+.paper-title {
+  font-weight: 600;
+  display: block;
+  margin: 6px 0;
+}
+
+.paper-journal {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.professor-course-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.professor-affiliation {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.paper-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* メッセージ用ボックス */
+.professor-message-box {
+  background: #fafafa;
+  border-radius: 16px;
+  padding: 44px 48px;
+  line-height: 1.9;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+/* 段落間の余白をしっかり */
+.professor-message-box p {
+  margin-bottom: 22px;
+}
+
+/* 最後の一文だけ余韻をつくる */
+.professor-message-end {
+  margin-top: 32px;
+  font-weight: 500;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .professor-message-box {
+    padding: 32px 24px;
+    font-size: 1rem;
+  }
+}
+
+
+/* レスポンシブ対応 */
+
+@media (max-width: 768px) {
+  .professor-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .professor-photo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 12px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+
+/* =========================
+   RECRUIT ページ ヒーロー 修正版
+========================= */
+
+.page-hero-recruit {
+  position: relative;
+  background-image: url("images/recruit-hero.jpg");
+  background-size: cover;
+  background-position: center top;
+  height: 360px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .page-hero-recruit {
+    aspect-ratio: 3 / 4;
+    height: auto;
+    min-height: 520px;
+    background-position: center center;
+  }
+}
+
+/* 左をしっかり暗くする */
+.page-hero-recruit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.3)
+  );
+  z-index: 1;
+}
+
+/* テキストブロック */
+.page-hero-recruit .page-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;     /* ← 横幅を絞る */
+  margin-left: 80px;   /* ← しっかり左へ */
+  color: #ffffff;
+}
+
+/* テキストの可読性UP */
+.page-hero-recruit .page-label,
+.page-hero-recruit .page-title,
+.page-hero-recruit .page-lead {
+  color: #ffffff;
+  text-shadow:
+    0 4px 12px rgba(0,0,0,0.7),
+    0 1px 2px rgba(0,0,0,0.9);
+}
+
+
+/* =========================
+   入ゼミ方法（RECRUITカード）
+========================= */
+
+.recruit-card {
+  text-align: center;
+}
+
+.recruit-method {
+  max-width: 980px;
+}
+
+.recruit-lead {
+  margin-bottom: 40px;
+  color: #444;
+}
+
+.recruit-lead::after {
+  margin-bottom: 30px;
+  color: #444;
+}
+
+
+.recruit-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.recruit-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 22px 20px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.recruit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.10);
+}
+
+.recruit-step {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f1f3f5;
+  font-size: 0.72rem;
+}
+
+
+.recruit-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.recruit-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.recruit-points {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 12px;
+}
+
+.recruit-points li {
+  font-size: 0.88rem;
+  color: #555;
+}
+
+
+.recruit-note {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: #777;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+
+.recruit-section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #222;
+  margin-bottom: 14px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* 下線 */
+.recruit-section-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #111;
+}
+
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .recruit-lead {
+    font-size: 0.98rem;
+  }
+
+  .recruit-card {
+    padding: 20px 18px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .recruit-section-title {
+    font-size: 1.8rem;
+  }
+
+  .recruit-section-title::after {
+    width: 40px;
+  }
+}
+
+
+/* =========================
+   PDFカード
+========================= */
+
+.section-alt {
+  background: #f9fafb;
+}
+
+/* 2列レイアウト（PC） */
+.pdf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* ★2列 */
+  gap: 20px;
+  max-width: 900px;         /* 少し広げて2列でも窮屈に見えないように */
+  margin-top: 24px;
+}
+
+.pdf-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;       /* ★少し小さめ */
+  border-radius: 10px;
+  background: #ffffff;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pdf-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.pdf-icon {
+  flex-shrink: 0;
+  width: 42px;             /* ★アイコンも少し小さく */
+  height: 52px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #4f5bff, #7c8cff);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.12em;
+}
+
+.pdf-content {
+  flex: 1;
+}
+
+.pdf-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pdf-meta {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.pdf-arrow {
+  font-size: 0.95rem;
+  color: #999;
+}
+
+.pdf-section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #222;
+  margin-bottom: 14px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* 下線 */
+.pdf-section-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: #111;
+}
+
+
+
+/* スマホでは1列に戻す */
+@media (max-width: 768px) {
+  .pdf-grid {
+    grid-template-columns: 1fr;  /* ★1列 */
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pdf-section-title {
+    font-size: 1.8rem;
+  }
+
+  .pdf-section-title::after {
+    width: 40px;
+  }
+}
+
+/* =========================
+   FAQ（RECRUIT）
+========================= */
+
+.recruit-faq {
+  padding-top: 80px;
+}
+
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 0;
+}
+
+.faq-item summary {
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+  padding-right: 24px;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "＋";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.2rem;
+  transition: transform 0.25s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg); /* ＋が×っぽくなる */
+}
+
+
+.faq-item p {
+  margin-top: 10px;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* FAQ アニメーション本体 */
+.faq-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* 開いたとき */
+.faq-item[open] .faq-content {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 中の文章 */
+.faq-content p {
+  margin-top: 12px;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.faq-note {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.faq-note p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+
+
+
+/* =========================
+   ヘッダーナビ（現在地表示）
+========================= */
+
+.nav-current {
+  font-weight: 600;
+}
+
+.nav-current::after {
+  width: 100%;
+}
+
+/* サブページのレスポンシブ */
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 56px 0 48px;
+  }
+
+  .page-hero-title {
+    font-size: 1.9rem;
+  }
+
+  .entry-card {
+    padding: 24px 20px;
+  }
+
+  .entry-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .entry-row dt {
+    width: auto;
+  }
+}
+
+/* =========================
+   NEWS 一覧
+========================= */
+
+
+/* =========================
+   NEWS ページ ヒーロー（上書き）
+========================= */
+
+.page-hero.page-hero-news {
+  position: relative;
+  background-image: url("images/news-hero.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  height: 360px;
+  display: flex;
+  align-items: center;
+}
+
+/* 写真の上に暗い幕を敷く */
+.page-hero.page-hero-news::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+   to right,
+   rgba(0,0,0,0.85),
+   rgba(0,0,0,0.65),
+   rgba(0,0,0,0.45)
+  );
+  z-index: 1;
+}
+
+/* 文字を前面に */
+.page-hero.page-hero-news .page-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin-left: 140px;   /* ← ここで左に寄せる */
+}
+
+
+
+.news-section {
+  padding-top: 72px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* 1件分のカード */
+
+.news-item {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px 22px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+.news-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.10);
+}
+
+.news-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+.news-body {
+  min-width: 0;
+}
+
+.news-meta {
+  margin-bottom: 4px;
+}
+
+.news-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  background: #eef1f5;
+  color: #555;
+}
+
+.news-tag-event {
+  background: #e8f3ff;
+  color: #2563eb;
+}
+
+.news-tag-notice {
+  background: #fff7e5;
+  color: #b45309;
+}
+
+.news-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.news-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.88rem;
+  color: #2563eb;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+
+.news-link:hover {
+  border-color: #2563eb;
+}
+
+
+.news-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.news-filter-btn {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+.news-filter-btn.is-active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+
+.news-filter-btn {
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+
+
+
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .page-hero-news .page-hero-inner {
+    margin-left: 0;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+  }
+
+  .news-date {
+    font-size: 0.85rem;
+    color: #888;
+  }
+}
+
+
+
+
+/* =========================
+   スクロールバー
+========================= */
+
+.news-list {
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Chrome / Edge / Safari */
+.news-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.news-list::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 999px;
+}
+
+.news-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* スマホでは通常スクロール */
+@media (max-width: 768px) {
+  .news-list {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+
+/* =========================
+   ABOUT US（サブページ共通デザインの応用）
+========================= */
+
+/* ====== ここから About 専用の上書き ====== */
+.page-hero--about {
+  position: relative;
+  background: url("images/herosub.png") center/cover no-repeat;
+  color: #fff;
+}
+
+/* 暗めのフィルターを画像の上にかける */
+.page-hero--about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* ここで暗さを調整（0.45 はちょい暗め） */
+}
+
+/* テキストをオーバーレイの上に乗せる */
+.page-hero--about .page-hero-inner,
+.page-hero--about .page-label,
+.page-hero--about .page-title,
+.page-hero--about .page-lead {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+/* ちょっとだけ読みやすくするなら影を足すのもアリ */
+.page-hero--about .page-title {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.page-hero--about .page-lead {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   ABOUT US ページ ヒーロー
+========================= */
+
+.page-hero-about {
+  position: relative;
+  background-image: url("images/about-hero.png"); /* ← 好きな写真 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 360px;
+
+  display: flex;
+  align-items: center;
+}
+
+/* 写真の上に暗い幕 */
+.page-hero-about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.35)
+  );
+  z-index: 1;
+}
+
+/* 文字を前面に */
+.page-hero-about .page-hero-inner {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  margin-left: 120px; /* 左に寄せたいなら */
+}
+
+
+/* ABOUT ギャラリー：同サイズ4枚 */
+.about-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2×2 */
+  gap: 24px;
+}
+
+/* カード共通 */
+.about-gallery-item {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 画像サイズを完全に統一 */
+.about-gallery-item img {
+  width: 100%;
+  height: 260px;           /* ★ 全カード同じ高さ */
+  object-fit: cover;       /* はみ出しをトリミング */
+  transition: transform 0.4s ease;
+}
+
+/* キャプション */
+.about-gallery-item figcaption {
+  padding: 18px 20px 20px;
+}
+
+.about-gallery-item .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.about-gallery-item h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.about-gallery-item p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* hover演出 */
+.about-gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* レスポンシブ */
+@media (max-width: 900px) {
+  .about-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-gallery-item img {
+    height: 220px;
+  }
+}
+
+.section-about {
+  padding: 120px 0 80px;
+}
+
+.about-intro {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 小ラベル */
+.section-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+/* メインタイトル */
+.about-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  margin-bottom: 28px;
+}
+
+
+/* =========================
+   WHY QUIZ（ABOUT）
+========================= */
+
+.why-quiz {
+  padding: 72px 0 96px;
+}
+
+/* 見出しまわり */
+.why-quiz .quiz-title {
+  max-width: 880px;
+  margin: 0 auto 12px;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.why-quiz .quiz-lead {
+  max-width: 680px;
+  margin: 0 auto 32px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* 1問分のカード */
+.quiz-card {
+  max-width: 880px;
+  margin: 0 auto 32px;
+  padding: 22px 20px 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* 質問文 */
+.quiz-question {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* 選択肢ラッパ（今はボタンが直下なので余白だけ） */
+.quiz-card .quiz-choice + .quiz-choice {
+  margin-top: 10px;
+}
+
+/* ボタン本体 */
+.quiz-choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  cursor: pointer;
+  text-align: left;
+
+  font-size: 0.95rem;
+  color: #111827;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.12s ease,
+    color 0.18s ease;
+}
+
+/* 左の丸アイコン（A/B）は data-choice から取る */
+.quiz-choice::before {
+  content: attr(data-choice);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #e5edff;
+  color: #1d4ed8;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* hover */
+.quiz-choice:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.18);
+  transform: translateY(-1px);
+}
+
+/* 選択状態（JSで .selected 付与） */
+.quiz-choice.selected {
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+}
+
+.quiz-choice.selected::before {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+/* 結果・解説エリア */
+.quiz-result {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #e5e7eb;
+
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  overflow: hidden;
+  transition:
+    max-height 0.28s ease,
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+/* JSから .show が付くとき */
+.quiz-result.show {
+  max-height: 260px;   /* 解説文の長さに合わせて必要なら増やす */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 「✅〜」が入るところ */
+.quiz-answer {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* 解説文 */
+.quiz-explain {
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+/* スマホ調整 */
+@media (max-width: 768px) {
+  .why-quiz {
+    padding: 56px 0 72px;
+  }
+
+  .why-quiz .quiz-title {
+    font-size: 1.35rem;
+    padding: 0 16px;
+  }
+
+  .why-quiz .quiz-lead {
+    padding: 0 16px;
+  }
+
+  .quiz-card {
+    margin: 0 16px 28px;
+    padding: 20px 16px 18px;
+  }
+
+  .quiz-question {
+    font-size: 1rem;
+  }
+
+  .quiz-choice {
+    padding: 10px 14px;
+  }
+}
+
+/* 説明文（あくまで脇役） */
+.about-lead {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #555;
+  margin-bottom: 64px;
+}
+
+
+
+/* 年間スケジュール（タイムライン） */
+.year-timeline {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 24px;
+  border-left: 2px solid #e0e4ea;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding: 12px 0 12px 24px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4f5bff;
+  transform: translateX(-50%);
+}
+
+.timeline-month {
+  min-width: 4.2em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #555;
+}
+
+.timeline-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.timeline-body p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* スマホで詰まりすぎないように */
+@media (max-width: 768px) {
+  .timeline-item {
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 20px;
+  }
+
+  .timeline-month {
+    font-size: 0.85rem;
+  }
+}
