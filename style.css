@@ -2,17 +2,30 @@
   GLOBAL / RESET
 ========================================================= */
 
-/* br をスマホで消す（現状維持：全ページに効く） */
+/* スマホだけ中央ぞろえ（現状維持） */
 @media (max-width: 768px) {
-  br {
-    display: none;
+  .section-title,
+  .section-lead {
+    text-align: center;
   }
 }
 
-/* スマホだけ中央ぞろえ（現状維持） */
+/* =========================================================
+  PC / SP 専用改行制御
+========================================================= */
+
+/* デフォルト（PC） */
+.sp-only {
+  display: none;
+}
+
+/* スマホ */
 @media (max-width: 768px) {
-  section:not(.page-hero) {
-    text-align: center;
+  .pc-only {
+    display: none;
+  }
+  .sp-only {
+    display: inline;
   }
 }
 
@@ -1937,4 +1950,3 @@ body {
     font-size: 0.85rem;
   }
 }
-
