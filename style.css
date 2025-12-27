@@ -1,12 +1,15 @@
+/* =========================================================
+  GLOBAL / RESET
+========================================================= */
+
+/* br をスマホで消す（現状維持：全ページに効く） */
 @media (max-width: 768px) {
   br {
     display: none;
   }
 }
 
-/* =========================
-スマホだけ中央ぞろえ
-========================= */
+/* スマホだけ中央ぞろえ（現状維持） */
 @media (max-width: 768px) {
   .section-title,
   .section-lead {
@@ -14,11 +17,9 @@
   }
 }
 
-
-/* =========================
-  メインページ
-========================= */
-
+/* =========================================================
+  MAIN PAGE / BASE
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -38,17 +39,25 @@ body {
   padding: 0 24px;
 }
 
+/* =========================================================
+  HEADER / LOGO
+========================================================= */
+
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background: #fff;
   padding: 24px 0;
   border-bottom: 1px solid #eee;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
 
 .logo {
   display: flex;
-  flex-direction: column;  /* ← 縦並びはここだけ */
+  flex-direction: column; /* ← 縦並びはここだけ */
   text-decoration: none;
 }
-
 
 .logo-en {
   font-size: 0.75rem;
@@ -58,7 +67,12 @@ body {
 .logo-jp {
   font-size: 0.95rem;
   font-weight: 500;
+  color: #111; /* 黒固定 */
 }
+
+/* =========================================================
+  HERO
+========================================================= */
 
 .hero {
   position: relative;
@@ -72,11 +86,10 @@ body {
 @media (max-width: 768px) {
   .hero {
     padding: 88px 0;
-    min-height: 50vh;               /* 少し低く */
+    min-height: 50vh; /* 少し低く */
     background-position: center 40%;
   }
 }
-
 
 .hero::before {
   content: "";
@@ -84,13 +97,14 @@ body {
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.75),   /* 左をしっかり暗くする */
+    rgba(0, 0, 0, 0.75), /* 左をしっかり暗くする */
     rgba(0, 0, 0, 0.45),
     rgba(0, 0, 0, 0.15)
   );
   z-index: 1;
 }
 
+/* hero overlay（現状維持：重複定義もそのまま） */
 .hero-overlay {
   /* background は消す */
   height: 100%;
@@ -101,43 +115,39 @@ body {
   z-index: 2;
 }
 
-
 .hero-overlay {
   position: relative;
   z-index: 2;
 }
 
-
 .hero-overlay {
   justify-content: flex-start;
 }
 
-
 .hero-inner {
   color: #fff;
-  max-width: 520px;      /* ← 文字幅を制限 */
-  margin-left: 120px;   /* ← 今より左に */
-  margin-top: 135px;     /* ← 下に下げる（ここがポイント） */
+  max-width: 520px; /* ← 文字幅を制限 */
+  margin-left: 120px; /* ← 今より左に */
+  margin-top: 135px; /* ← 下に下げる（ここがポイント） */
 }
 
 .hero-inner h1 {
-  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-
 .hero-tag {
-  font-size: 1.4rem;       /* 1.2 → 1.4 くらい */
+  font-size: 1.4rem; /* 1.2 → 1.4 くらい */
   font-weight: 600;
   letter-spacing: 0.12em;
   opacity: 0.95;
 }
 
 .hero-inner h1 {
-  font-size: 3.6rem;       /* 3.2 → 3.6 にアップ */
+  font-size: 3.6rem; /* 3.2 → 3.6 にアップ */
   font-weight: 750;
   letter-spacing: 0.08em;
   margin-bottom: 18px;
-  text-shadow: 0 4px 18px rgba(0,0,0,0.6);  /* 影を少し強めに */
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6); /* 影を少し強めに */
 }
 
 .hero-text {
@@ -145,6 +155,9 @@ body {
   opacity: 0.95;
 }
 
+/* =========================================================
+  SECTION COMMON
+========================================================= */
 
 .section {
   padding: 100px 0;
@@ -183,14 +196,16 @@ body {
   margin-bottom: 16px;
 }
 
-/* → MORE ボタン */
+/* =========================================================
+  MORE BUTTON
+========================================================= */
+
 .more-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  
-  
+
   padding: 3px 8px;
   border-radius: 12px;
   border: 1px solid #ddd;
@@ -204,11 +219,10 @@ body {
   text-decoration: none;
 
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
-  transition: background 0.2s ease, color 0.2s ease,
-              box-shadow 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
-/* hover 時のちょっとした動き */
 .more-btn:hover {
   background: #111;
   color: #fff;
@@ -216,10 +230,9 @@ body {
   transform: translateY(-1px);
 }
 
-
-/* =========================
-   TOPページ用：直近 NEWS 3件
-========================= */
+/* =========================================================
+  TOP NEWS (HOME)
+========================================================= */
 
 .top-news {
   margin: 32px auto 80px;
@@ -250,18 +263,15 @@ body {
   text-decoration: underline;
 }
 
-/* リスト全体 */
 #top-news-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;   /* ← ここもついでに広げる */
+  gap: 18px; /* ← ここもついでに広げる */
 }
 
-
-/* 各ニュース行 */
 .top-news-item {
   display: flex;
   gap: 16px;
@@ -274,9 +284,8 @@ body {
   color: #222;
 
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-  transition: background 0.15s ease,
-              box-shadow 0.15s ease,
-              transform 0.15s ease;
+  transition: background 0.15s ease, box-shadow 0.15s ease,
+    transform 0.15s ease;
 }
 
 .top-news-item:hover {
@@ -288,7 +297,7 @@ body {
 .top-news-item time {
   font-size: 0.85rem;
   color: #888;
-  min-width: 7em;  /* 日付の幅をそろえる */
+  min-width: 7em; /* 日付の幅をそろえる */
 }
 
 .top-news-item p {
@@ -296,7 +305,9 @@ body {
   line-height: 1.6;
 }
 
-
+/* =========================================================
+  SEMINAR VISUAL
+========================================================= */
 
 .seminar-visual {
   width: 100%;
@@ -306,7 +317,7 @@ body {
 }
 
 .seminar-visual-overlay {
-  background: rgba(20,20,20,0.65);
+  background: rgba(20, 20, 20, 0.65);
   height: 100%;
   display: flex;
   align-items: center;
@@ -329,20 +340,23 @@ body {
   margin: 20px 0;
 }
 
+/* =========================================================
+  FEATURE GRID / CARDS
+========================================================= */
+
 .feature-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 36px;
-  max-width: 800px;      /* 横幅をあえて抑える */
+  max-width: 800px; /* 横幅をあえて抑える */
   margin: 0 auto;
 }
-
 
 .feature-card {
   padding: 36px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .feature-card {
@@ -351,9 +365,8 @@ body {
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
-
 
 .feature-card h3 {
   font-size: 1.15rem;
@@ -364,6 +377,10 @@ body {
   color: #555;
 }
 
+/* =========================================================
+  FOOTER (SIMPLE)
+========================================================= */
+
 .footer {
   padding: 40px 0;
   background: #fafafa;
@@ -371,6 +388,10 @@ body {
   font-size: 0.85rem;
   color: #666;
 }
+
+/* =========================================================
+  HERO (MOBILE OVERRIDE)
+========================================================= */
 
 @media (max-width: 768px) {
   .hero-inner {
@@ -385,7 +406,7 @@ body {
   }
 
   .hero-tag {
-    font-size: 1.0rem;
+    font-size: 1rem;
   }
 
   .hero-inner h1 {
@@ -393,13 +414,17 @@ body {
   }
 }
 
+/* =========================================================
+  LATEST NEWS (HOME)
+========================================================= */
+
 .latest-news {
   margin-bottom: 80px;
 }
 
-/* =========================
-   フッター
-========================= */
+/* =========================================================
+  SITE FOOTER (FULL)
+========================================================= */
 
 .site-footer {
   background: #fafafa;
@@ -433,7 +458,6 @@ body {
   color: #999;
 }
 
-/* ナビ部分 */
 .footer-nav {
   display: flex;
   flex-wrap: wrap;
@@ -470,7 +494,6 @@ body {
   width: 100%;
 }
 
-/* Instagram アイコン */
 .footer-sns {
   display: flex;
   align-items: center;
@@ -489,7 +512,7 @@ body {
   color: #555;
   text-decoration: none;
   transition: background 0.2s ease, border-color 0.2s ease,
-              transform 0.2s ease, box-shadow 0.2s ease;
+    transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .footer-instagram svg {
@@ -508,7 +531,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* スマホ対応 */
 @media (max-width: 768px) {
   .footer-inner {
     flex-direction: column;
@@ -525,13 +547,10 @@ body {
   }
 }
 
+/* =========================================================
+  FEATURE CARDS (IMAGE)
+========================================================= */
 
-
-/* 既存のCSSがここまで */
-
-/* =========================
-   featureカード（画像付き）
-========================= */
 .feature-with-image {
   display: flex;
   gap: 24px;
@@ -546,7 +565,6 @@ body {
   border-radius: 50%;
   background: #f2f2f2;
 }
-
 
 .feature-image img {
   width: 100%;
@@ -564,16 +582,16 @@ body {
   line-height: 1.7;
 }
 
-/* スマホ対応 */
 @media (max-width: 768px) {
   .feature-with-image {
     flex-direction: column;
-    align-items: flex-start;}
+    align-items: flex-start;
+  }
 }
 
-/* =========================
-   ヘッダーナビゲーション
-========================= */
+/* =========================================================
+  HEADER NAVIGATION
+========================================================= */
 
 .header-inner {
   display: flex;
@@ -610,7 +628,7 @@ body {
   width: 100%;
 }
 
-/* ハンバーガー */
+/* hamburger */
 .nav-toggle {
   display: none;
   width: 32px;
@@ -630,9 +648,15 @@ body {
   transition: 0.25s;
 }
 
-.nav-toggle span:nth-child(1) { top: 0; }
-.nav-toggle span:nth-child(2) { top: 10px; }
-.nav-toggle span:nth-child(3) { top: 20px; }
+.nav-toggle span:nth-child(1) {
+  top: 0;
+}
+.nav-toggle span:nth-child(2) {
+  top: 10px;
+}
+.nav-toggle span:nth-child(3) {
+  top: 20px;
+}
 
 .nav-toggle.open span:nth-child(1) {
   top: 10px;
@@ -646,11 +670,10 @@ body {
   transform: rotate(-45deg);
 }
 
+/* =========================================================
+  NAV (MOBILE)
+========================================================= */
 
-
-/* =========================
-   スマホ用
-========================= */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -664,7 +687,7 @@ body {
     left: 16px;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(15,23,42,.16);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
     flex-direction: column;
     padding: 12px 0;
   }
@@ -679,7 +702,7 @@ body {
   }
 }
 
-/* モーダル用 背景 */
+/* modal overlay */
 .nav-overlay {
   position: fixed;
   inset: 0;
@@ -690,13 +713,12 @@ body {
   z-index: 900;
 }
 
-/* 表示状態 */
 .nav-overlay.open {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* ナビは overlay より前に */
+/* layering */
 .global-nav {
   z-index: 1000;
 }
@@ -705,10 +727,9 @@ body {
   z-index: 1001;
 }
 
-
-/* =========================
-   ページヒーロー（共通・色）
-========================= */
+/* =========================================================
+  PAGE HERO (COMMON)
+========================================================= */
 
 .page-hero {
   background: linear-gradient(135deg, #2e3136, #4b4f56);
@@ -737,10 +758,9 @@ body {
   opacity: 0.9;
 }
 
-
-/* =========================
-   教授ページ レイアウト
-========================= */
+/* =========================================================
+  PROFESSOR PAGE
+========================================================= */
 
 .page-hero.page-hero-professor {
   background-image: url("images/professorhero.png");
@@ -749,13 +769,11 @@ body {
   color: #111;
 }
 
-/* スマホだけ位置だけいじる */
 @media (max-width: 768px) {
   .page-hero.page-hero-professor {
     background-position: center center; /* 真ん中で切り抜く */
   }
 }
-
 
 .professor-photo {
   flex-shrink: 0;
@@ -814,8 +832,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* セクション内の見出しやテキスト */
-
 .professor-section {
   margin-top: 36px;
 }
@@ -838,12 +854,10 @@ body {
   margin-bottom: 18px;
 }
 
-
 .professor-block {
-  margin-bottom: 96px;           /* セクション間の余白 */
+  margin-bottom: 96px; /* セクション間の余白 */
 }
 
-/* 見出し */
 .professor-section-title {
   font-size: 2.2rem;
   font-weight: 700;
@@ -852,7 +866,6 @@ body {
   position: relative;
 }
 
-/* 見出しの下に細いライン（効く） */
 .professor-section-title::after {
   content: "";
   display: block;
@@ -862,15 +875,13 @@ body {
   margin-top: 12px;
 }
 
-/* 見出し直下の説明文 */
 .professor-lead {
   font-size: 1.05rem;
   color: #555;
-  margin-bottom: 0px;   /* ← ここが「余白足りない」問題の核心 */
+  margin-bottom: 0px; /* ← ここが「余白足りない」問題の核心 */
   line-height: 1.8;
 }
 
-/* 本文全体を少し囲う */
 .professor-content {
   background: #fafafa;
   border-radius: 16px;
@@ -878,16 +889,12 @@ body {
   line-height: 1.9;
 }
 
-
-
-/* 論文リスト */
-
 .paper-list li {
   background: #fff;
   border-radius: 12px;
   padding: 18px 24px;
   margin-bottom: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
 }
 
 .paper-title {
@@ -918,7 +925,6 @@ body {
   margin-left: 0;
 }
 
-/* メッセージ用ボックス */
 .professor-message-box {
   background: #fafafa;
   border-radius: 16px;
@@ -928,27 +934,21 @@ body {
   color: #333;
 }
 
-/* 段落間の余白をしっかり */
 .professor-message-box p {
   margin-bottom: 22px;
 }
 
-/* 最後の一文だけ余韻をつくる */
 .professor-message-end {
   margin-top: 32px;
   font-weight: 500;
 }
 
-/* スマホ対応 */
 @media (max-width: 768px) {
   .professor-message-box {
     padding: 32px 24px;
     font-size: 1rem;
   }
 }
-
-
-/* レスポンシブ対応 */
 
 @media (max-width: 768px) {
   .professor-layout {
@@ -967,10 +967,9 @@ body {
   }
 }
 
-
-/* =========================
-   RECRUIT ページ ヒーロー 修正版
-========================= */
+/* =========================================================
+  RECRUIT HERO
+========================================================= */
 
 .page-hero-recruit {
   position: relative;
@@ -991,43 +990,38 @@ body {
   }
 }
 
-/* 左をしっかり暗くする */
 .page-hero-recruit::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0,0,0,0.85),
-    rgba(0,0,0,0.65),
-    rgba(0,0,0,0.3)
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.3)
   );
   z-index: 1;
 }
 
-/* テキストブロック */
 .page-hero-recruit .page-hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 720px;     /* ← 横幅を絞る */
-  margin-left: 80px;   /* ← しっかり左へ */
+  max-width: 720px; /* ← 横幅を絞る */
+  margin-left: 80px; /* ← しっかり左へ */
   color: #ffffff;
 }
 
-/* テキストの可読性UP */
 .page-hero-recruit .page-label,
 .page-hero-recruit .page-title,
 .page-hero-recruit .page-lead {
   color: #ffffff;
-  text-shadow:
-    0 4px 12px rgba(0,0,0,0.7),
-    0 1px 2px rgba(0,0,0,0.9);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7),
+    0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
-
-/* =========================
-   入ゼミ方法（RECRUITカード）
-========================= */
+/* =========================================================
+  RECRUIT CARDS
+========================================================= */
 
 .recruit-card {
   text-align: center;
@@ -1047,7 +1041,6 @@ body {
   color: #444;
 }
 
-
 .recruit-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1064,7 +1057,7 @@ body {
 
 .recruit-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.10);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
 }
 
 .recruit-step {
@@ -1075,7 +1068,6 @@ body {
   background: #f1f3f5;
   font-size: 0.72rem;
 }
-
 
 .recruit-card h3 {
   font-size: 1.15rem;
@@ -1099,7 +1091,6 @@ body {
   color: #555;
 }
 
-
 .recruit-note {
   margin-top: 24px;
   font-size: 0.85rem;
@@ -1107,8 +1098,6 @@ body {
   text-align: center;
   white-space: nowrap;
 }
-
-
 
 .recruit-section-title {
   font-size: 2.2rem;
@@ -1120,7 +1109,6 @@ body {
   padding-bottom: 12px;
 }
 
-/* 下線 */
 .recruit-section-title::after {
   content: "";
   display: block;
@@ -1129,8 +1117,6 @@ body {
   background: #111;
 }
 
-
-/* スマホ対応 */
 @media (max-width: 768px) {
   .recruit-lead {
     font-size: 0.98rem;
@@ -1151,21 +1137,19 @@ body {
   }
 }
 
-
-/* =========================
-   PDFカード
-========================= */
+/* =========================================================
+  PDF CARDS
+========================================================= */
 
 .section-alt {
   background: #f9fafb;
 }
 
-/* 2列レイアウト（PC） */
 .pdf-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr)); /* ★2列 */
   gap: 20px;
-  max-width: 900px;         /* 少し広げて2列でも窮屈に見えないように */
+  max-width: 900px; /* 少し広げて2列でも窮屈に見えないように */
   margin-top: 24px;
 }
 
@@ -1173,23 +1157,23 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 16px;       /* ★少し小さめ */
+  padding: 14px 16px; /* ★少し小さめ */
   border-radius: 10px;
   background: #ffffff;
   text-decoration: none;
   color: inherit;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .pdf-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
 .pdf-icon {
   flex-shrink: 0;
-  width: 42px;             /* ★アイコンも少し小さく */
+  width: 42px; /* ★アイコンも少し小さく */
   height: 52px;
   border-radius: 9px;
   background: linear-gradient(135deg, #4f5bff, #7c8cff);
@@ -1232,7 +1216,6 @@ body {
   padding-bottom: 12px;
 }
 
-/* 下線 */
 .pdf-section-title::after {
   content: "";
   display: block;
@@ -1241,12 +1224,9 @@ body {
   background: #111;
 }
 
-
-
-/* スマホでは1列に戻す */
 @media (max-width: 768px) {
   .pdf-grid {
-    grid-template-columns: 1fr;  /* ★1列 */
+    grid-template-columns: 1fr; /* ★1列 */
     max-width: 100%;
   }
 }
@@ -1261,9 +1241,9 @@ body {
   }
 }
 
-/* =========================
-   FAQ（RECRUIT）
-========================= */
+/* =========================================================
+  FAQ (RECRUIT)
+========================================================= */
 
 .recruit-faq {
   padding-top: 80px;
@@ -1305,7 +1285,6 @@ body {
   transform: rotate(45deg); /* ＋が×っぽくなる */
 }
 
-
 .faq-item p {
   margin-top: 10px;
   color: #555;
@@ -1313,26 +1292,21 @@ body {
   line-height: 1.8;
 }
 
-/* FAQ アニメーション本体 */
 .faq-content {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
   transform: translateY(-6px);
-  transition:
-    max-height 0.35s ease,
-    opacity 0.25s ease,
+  transition: max-height 0.35s ease, opacity 0.25s ease,
     transform 0.25s ease;
 }
 
-/* 開いたとき */
 .faq-item[open] .faq-content {
   max-height: 500px;
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 中の文章 */
 .faq-content p {
   margin-top: 12px;
   color: #555;
@@ -1353,12 +1327,9 @@ body {
   line-height: 1.8;
 }
 
-
-
-
-/* =========================
-   ヘッダーナビ（現在地表示）
-========================= */
+/* =========================================================
+  HEADER NAV (CURRENT)
+========================================================= */
 
 .nav-current {
   font-weight: 600;
@@ -1368,7 +1339,9 @@ body {
   width: 100%;
 }
 
-/* サブページのレスポンシブ */
+/* =========================================================
+  SUB PAGE RESPONSIVE
+========================================================= */
 
 @media (max-width: 768px) {
   .page-hero {
@@ -1393,14 +1366,9 @@ body {
   }
 }
 
-/* =========================
-   NEWS 一覧
-========================= */
-
-
-/* =========================
-   NEWS ページ ヒーロー（上書き）
-========================= */
+/* =========================================================
+  NEWS PAGE (LIST / HERO)
+========================================================= */
 
 .page-hero.page-hero-news {
   position: relative;
@@ -1413,29 +1381,25 @@ body {
   align-items: center;
 }
 
-/* 写真の上に暗い幕を敷く */
 .page-hero.page-hero-news::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-   to right,
-   rgba(0,0,0,0.85),
-   rgba(0,0,0,0.65),
-   rgba(0,0,0,0.45)
+    to right,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.45)
   );
   z-index: 1;
 }
 
-/* 文字を前面に */
 .page-hero.page-hero-news .page-hero-inner {
   position: relative;
   z-index: 2;
   max-width: 900px;
-  margin-left: 140px;   /* ← ここで左に寄せる */
+  margin-left: 140px; /* ← ここで左に寄せる */
 }
-
-
 
 .news-section {
   padding-top: 72px;
@@ -1449,8 +1413,6 @@ body {
   margin: 0 auto;
 }
 
-/* 1件分のカード */
-
 .news-item {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
@@ -1462,10 +1424,9 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-
 .news-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.10);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.1);
 }
 
 .news-date {
@@ -1527,7 +1488,6 @@ body {
   border-color: #2563eb;
 }
 
-
 .news-filters {
   display: flex;
   gap: 10px;
@@ -1549,16 +1509,11 @@ body {
   color: #fff;
 }
 
-
 .news-filter-btn {
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-
-
-
-
-/* スマホ対応 */
 @media (max-width: 768px) {
   .page-hero-news .page-hero-inner {
     margin-left: 0;
@@ -1576,12 +1531,9 @@ body {
   }
 }
 
-
-
-
-/* =========================
-   スクロールバー
-========================= */
+/* =========================================================
+  NEWS LIST SCROLLBAR
+========================================================= */
 
 .news-list {
   max-height: 520px;
@@ -1589,13 +1541,12 @@ body {
   padding-right: 6px;
 }
 
-/* Chrome / Edge / Safari */
 .news-list::-webkit-scrollbar {
   width: 6px;
 }
 
 .news-list::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 999px;
 }
 
@@ -1603,7 +1554,6 @@ body {
   background: transparent;
 }
 
-/* スマホでは通常スクロール */
 @media (max-width: 768px) {
   .news-list {
     max-height: none;
@@ -1611,19 +1561,16 @@ body {
   }
 }
 
+/* =========================================================
+  ABOUT PAGE (HERO / INTRO / GALLERY)
+========================================================= */
 
-/* =========================
-   ABOUT US（サブページ共通デザインの応用）
-========================= */
-
-/* ====== ここから About 専用の上書き ====== */
 .page-hero--about {
   position: relative;
   background: url("images/herosub.png") center/cover no-repeat;
   color: #fff;
 }
 
-/* 暗めのフィルターを画像の上にかける */
 .page-hero--about::before {
   content: "";
   position: absolute;
@@ -1631,7 +1578,6 @@ body {
   background: rgba(0, 0, 0, 0.45); /* ここで暗さを調整（0.45 はちょい暗め） */
 }
 
-/* テキストをオーバーレイの上に乗せる */
 .page-hero--about .page-hero-inner,
 .page-hero--about .page-label,
 .page-hero--about .page-title,
@@ -1641,17 +1587,12 @@ body {
   color: #fff;
 }
 
-/* ちょっとだけ読みやすくするなら影を足すのもアリ */
 .page-hero--about .page-title {
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 .page-hero--about .page-lead {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
-
-/* =========================
-   ABOUT US ページ ヒーロー
-========================= */
 
 .page-hero-about {
   position: relative;
@@ -1665,21 +1606,19 @@ body {
   align-items: center;
 }
 
-/* 写真の上に暗い幕 */
 .page-hero-about::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.35)
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.35)
   );
   z-index: 1;
 }
 
-/* 文字を前面に */
 .page-hero-about .page-hero-inner {
   position: relative;
   z-index: 2;
@@ -1687,33 +1626,28 @@ body {
   margin-left: 120px; /* 左に寄せたいなら */
 }
 
-
-/* ABOUT ギャラリー：同サイズ4枚 */
 .about-gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2×2 */
   gap: 24px;
 }
 
-/* カード共通 */
 .about-gallery-item {
   overflow: hidden;
   border-radius: 16px;
   background: #fff;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
 }
 
-/* 画像サイズを完全に統一 */
 .about-gallery-item img {
   width: 100%;
-  height: 260px;           /* ★ 全カード同じ高さ */
-  object-fit: cover;       /* はみ出しをトリミング */
+  height: 260px; /* ★ 全カード同じ高さ */
+  object-fit: cover; /* はみ出しをトリミング */
   transition: transform 0.4s ease;
 }
 
-/* キャプション */
 .about-gallery-item figcaption {
   padding: 18px 20px 20px;
 }
@@ -1737,12 +1671,10 @@ body {
   line-height: 1.6;
 }
 
-/* hover演出 */
 .about-gallery-item:hover img {
   transform: scale(1.06);
 }
 
-/* レスポンシブ */
 @media (max-width: 900px) {
   .about-gallery-grid {
     grid-template-columns: 1fr;
@@ -1763,7 +1695,6 @@ body {
   text-align: center;
 }
 
-/* 小ラベル */
 .section-eyebrow {
   font-size: 0.7rem;
   letter-spacing: 0.28em;
@@ -1771,7 +1702,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* メインタイトル */
 .about-title {
   font-size: 2.6rem;
   font-weight: 800;
@@ -1780,16 +1710,14 @@ body {
   margin-bottom: 28px;
 }
 
-
-/* =========================
-   WHY QUIZ（ABOUT）
-========================= */
+/* =========================================================
+  WHY QUIZ (ABOUT)
+========================================================= */
 
 .why-quiz {
   padding: 72px 0 96px;
 }
 
-/* 見出しまわり */
 .why-quiz .quiz-title {
   max-width: 880px;
   margin: 0 auto 12px;
@@ -1806,7 +1734,6 @@ body {
   color: #555;
 }
 
-/* 1問分のカード */
 .quiz-card {
   max-width: 880px;
   margin: 0 auto 32px;
@@ -1816,7 +1743,6 @@ body {
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
-/* 質問文 */
 .quiz-question {
   font-size: 1.05rem;
   font-weight: 600;
@@ -1824,12 +1750,10 @@ body {
   margin-bottom: 16px;
 }
 
-/* 選択肢ラッパ（今はボタンが直下なので余白だけ） */
 .quiz-card .quiz-choice + .quiz-choice {
   margin-top: 10px;
 }
 
-/* ボタン本体 */
 .quiz-choice {
   display: flex;
   align-items: center;
@@ -1844,15 +1768,10 @@ body {
 
   font-size: 0.95rem;
   color: #111827;
-  transition:
-    background 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease,
-    transform 0.12s ease,
-    color 0.18s ease;
+  transition: background 0.18s ease, border-color 0.18s ease,
+    box-shadow 0.18s ease, transform 0.12s ease, color 0.18s ease;
 }
 
-/* 左の丸アイコン（A/B）は data-choice から取る */
 .quiz-choice::before {
   content: attr(data-choice);
   display: inline-flex;
@@ -1867,7 +1786,6 @@ body {
   font-weight: 600;
 }
 
-/* hover */
 .quiz-choice:hover {
   background: #eef2ff;
   border-color: #c7d2fe;
@@ -1875,7 +1793,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* 選択状態（JSで .selected 付与） */
 .quiz-choice.selected {
   background: linear-gradient(90deg, #2563eb, #4f46e5);
   border-color: transparent;
@@ -1888,7 +1805,6 @@ body {
   color: #ffffff;
 }
 
-/* 結果・解説エリア */
 .quiz-result {
   margin-top: 16px;
   padding-top: 14px;
@@ -1898,26 +1814,21 @@ body {
   opacity: 0;
   transform: translateY(6px);
   overflow: hidden;
-  transition:
-    max-height 0.28s ease,
-    opacity 0.22s ease,
+  transition: max-height 0.28s ease, opacity 0.22s ease,
     transform 0.22s ease;
 }
 
-/* JSから .show が付くとき */
 .quiz-result.show {
-  max-height: 260px;   /* 解説文の長さに合わせて必要なら増やす */
+  max-height: 260px; /* 解説文の長さに合わせて必要なら増やす */
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 「✅〜」が入るところ */
 .quiz-answer {
   font-weight: 600;
   margin-bottom: 6px;
 }
 
-/* 解説文 */
 .quiz-explain {
   font-size: 0.9rem;
   color: #4b5563;
@@ -1937,7 +1848,7 @@ body {
 
   .why-quiz .quiz-lead {
     padding: 0 16px;
-    text-align: left;  
+    text-align: left;
   }
 
   .quiz-card {
@@ -1960,8 +1871,7 @@ body {
   }
 }
 
-
-/* 説明文（あくまで脇役） */
+/* ABOUT lead（脇役） */
 .about-lead {
   font-size: 1.05rem;
   line-height: 2;
@@ -1969,9 +1879,10 @@ body {
   margin-bottom: 64px;
 }
 
+/* =========================================================
+  YEAR TIMELINE
+========================================================= */
 
-
-/* 年間スケジュール（タイムライン） */
 .year-timeline {
   list-style: none;
   padding-left: 0;
@@ -2015,7 +1926,6 @@ body {
   color: #555;
 }
 
-/* スマホで詰まりすぎないように */
 @media (max-width: 768px) {
   .timeline-item {
     flex-direction: column;
@@ -2027,6 +1937,3 @@ body {
     font-size: 0.85rem;
   }
 }
-
-
-
