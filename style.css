@@ -11,11 +11,11 @@
 
 /* スマホだけ中央ぞろえ（現状維持） */
 @media (max-width: 768px) {
-  .section-title,
-  .section-lead {
+  section:not(.page-hero) {
     text-align: center;
   }
 }
+
 
 /* =========================================================
   MAIN PAGE / BASE
@@ -1937,3 +1937,4 @@ body {
     font-size: 0.85rem;
   }
 }
+
