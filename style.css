@@ -1937,6 +1937,7 @@ body {
 
   .why-quiz .quiz-lead {
     padding: 0 16px;
+    text-align: left;  
   }
 
   .quiz-card {
@@ -2026,5 +2027,6 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
 
