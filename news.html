@@ -1,112 +1,141 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- =========================
+       META
+  ========================== -->
   <meta charset="UTF-8">
   <title>NEWS｜津曲正俊研究会</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- =========================
+       CSS / FONTS
+  ========================== -->
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  >
 </head>
+
 <body>
 
-<!-- ヘッダー -->
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="header">
+    <div class="container header-inner">
 
-<header class="header">
-  <div class="container header-inner">
- <a href="index.html" class="logo">
-  <span class="logo-en">Keio University Tsumagari Seminar</span>
-  <span class="logo-jp">慶應義塾大学経済学部 津曲研究会</span>
-</a>
-
-    <!-- ハンバーガーボタンを追加 -->
-    <button class="nav-toggle" aria-label="メニュー">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- nav に nav クラスを追加（JS用） -->
-    <nav class="global-nav nav">
-      <a href="index.html">HOME</a>
-      <a href="news.html" class="nav-current">NEWS</a>
-      <a href="about.html">ABOUT US</a>
-      <a href="professor.html">PROFESSOR</a>
-      <a href="recruit.html">RECRUIT</a>
-    </nav>
-  </div>
-</header>
-
-<div class="nav-overlay"></div>
-
-<!-- NEWS ヒーロー -->
-<section class="page-hero page-hero-news">
-  <div class="container page-hero-inner">
-    <p class="page-label">お知らせ</p>
-    <h1 class="page-title">NEWS</h1>
-    <p class="page-lead">
-      津曲ゼミからの入ゼミ情報・イベント・活動報告などをまとめています<br>
-      新しい情報が入り次第、このページで随時更新していきます    </p>
-  </div>
-</section>
-
-<!-- NEWS 一覧 -->
-<section class="section news-section">
-  <div class="container">
-
-<!-- フィルターボタン -->
-    <div class="news-filters">
-      <button class="news-filter-btn is-active" data-filter="all">すべて</button>
-      <button class="news-filter-btn" data-filter="入ゼミ情報">入ゼミ情報</button>
-    </div>
-
-
-      <!-- JSがここに記事を描画する -->
-    <div class="news-list" id="news-list"></div>
-
-
-     </div>
-</section>
-
-<!-- フッター -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <!-- 左：ロゴ・著作権 -->
-    <div class="footer-left">
-      <p class="footer-logo-en">Keio University Tsumagari Seminar</p>
-      <p class="footer-logo-jp">慶應義塾大学経済学部 津曲研究会</p>
-      <p class="footer-copy">© 2025 津曲正俊研究会</p>
-    </div>
-
-    <!-- 中央：ナビゲーション -->
-    <nav class="footer-nav">
-      <a href="index.html">HOME</a>
-      <a href="news.html">NEWS</a>
-      <a href="about.html">ABOUT US</a>
-      <a href="professor.html">PROFESSOR</a>
-      <a href="recruit.html">RECRUIT</a>
-    </nav>
-
-    <!-- 右：Instagram -->
-    <div class="footer-sns">
-      <!-- Instagram の URL は自分のアカウントに書き換えてね -->
-      <a href="https://www.instagram.com/tsumagari_seminar_2025?igsh=MTl6cGx6N3Q2cXZwcA%3D%3D&utm_source=qr"
-         target="_blank"
-         rel="noopener"
-         class="footer-instagram"
-         aria-label="Instagram">
-        <!-- シンプルなインスタ風アイコン（SVG） -->
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-          <circle cx="12" cy="12" r="4.2"></circle>
-          <circle cx="17.2" cy="6.8" r="1.3"></circle>
-        </svg>
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <span class="logo-en">Keio University Tsumagari Seminar</span>
+        <span class="logo-jp">慶應義塾大学経済学部 津曲研究会</span>
       </a>
+
+      <!-- Hamburger button -->
+      <button class="nav-toggle" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Global navigation -->
+      <nav class="global-nav nav">
+        <a href="index.html">HOME</a>
+        <a href="news.html" class="nav-current">NEWS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="professor.html">PROFESSOR</a>
+        <a href="recruit.html">RECRUIT</a>
+      </nav>
+
     </div>
-  </div>
-</footer>
+  </header>
+
+  <!-- Nav overlay -->
+  <div class="nav-overlay"></div>
 
 
-<script src="script.js"></script>
+  <!-- =========================
+       HERO (NEWS)
+  ========================== -->
+  <section class="page-hero page-hero-news">
+    <div class="container page-hero-inner">
+      <p class="page-label">お知らせ</p>
+      <h1 class="page-title">NEWS</h1>
+      <p class="page-lead">
+        津曲ゼミからの入ゼミ情報・イベント・活動報告などをまとめています<br>
+        新しい情報が入り次第、このページで随時更新していきます
+      </p>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       NEWS LIST
+  ========================== -->
+  <section class="section news-section">
+    <div class="container">
+
+      <!-- Filter buttons -->
+      <div class="news-filters">
+        <button class="news-filter-btn is-active" data-filter="all">すべて</button>
+        <button class="news-filter-btn" data-filter="入ゼミ情報">入ゼミ情報</button>
+      </div>
+
+      <!-- JS renders articles here -->
+      <div class="news-list" id="news-list"></div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <!-- Left -->
+      <div class="footer-left">
+        <p class="footer-logo-en">Keio University Tsumagari Seminar</p>
+        <p class="footer-logo-jp">慶應義塾大学経済学部 津曲研究会</p>
+        <p class="footer-copy">© 2025 津曲正俊研究会</p>
+      </div>
+
+      <!-- Center -->
+      <nav class="footer-nav">
+        <a href="index.html">HOME</a>
+        <a href="news.html">NEWS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="professor.html">PROFESSOR</a>
+        <a href="recruit.html">RECRUIT</a>
+      </nav>
+
+      <!-- Right -->
+      <div class="footer-sns">
+        <a
+          href="https://www.instagram.com/tsumagari_seminar_2025?igsh=MTl6cGx6N3Q2cXZwcA%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener"
+          class="footer-instagram"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <circle cx="17.2" cy="6.8" r="1.3"></circle>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =========================
+       JS
+  ========================== -->
+  <script src="script.js"></script>
+
 </body>
 </html>
-
