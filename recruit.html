@@ -1,327 +1,363 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- =========================
+       META
+  ========================== -->
   <meta charset="UTF-8">
   <title>RECRUIT｜津曲正俊研究会</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- =========================
+       CSS / FONTS
+  ========================== -->
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  >
 </head>
+
 <body>
 
-<header class="header">
-  <div class="container header-inner">
- <a href="index.html" class="logo">
-  <span class="logo-en">Keio University Tsumagari Seminar</span>
-  <span class="logo-jp">慶應義塾大学経済学部 津曲研究会</span>
-</a>
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="header">
+    <div class="container header-inner">
 
-    <!-- ハンバーガーボタンを追加 -->
-    <button class="nav-toggle" aria-label="メニュー">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <span class="logo-en">Keio University Tsumagari Seminar</span>
+        <span class="logo-jp">慶應義塾大学経済学部 津曲研究会</span>
+      </a>
 
-    <!-- nav に nav クラスを追加（JS用） -->
-    <nav class="global-nav nav">
-      <a href="index.html">HOME</a>
-      <a href="news.html">NEWS</a>
-      <a href="about.html">ABOUT US</a>
-      <a href="professor.html">PROFESSOR</a>
-      <a href="recruit.html" class="nav-current">RECRUIT</a>
-    </nav>
-  </div>
-</header>
+      <!-- Hamburger button -->
+      <button class="nav-toggle" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-<div class="nav-overlay"></div>
+      <!-- Global navigation -->
+      <nav class="global-nav nav">
+        <a href="index.html">HOME</a>
+        <a href="news.html">NEWS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="professor.html">PROFESSOR</a>
+        <a href="recruit.html" class="nav-current">RECRUIT</a>
+      </nav>
 
-<section class="page-hero page-hero-recruit">
-  <div class="container page-hero-inner">
-    <p class="page-label">入ゼミ情報</p>
-    <h1 class="page-title">RECRUIT</h1>
-    <p class="page-lead">
-      津曲ゼミの入ゼミ方法と、過去の試験問題をまとめています
-    </p>
-  </div>
-</section>
+    </div>
+  </header>
+
+  <!-- Nav overlay -->
+  <div class="nav-overlay"></div>
 
 
-<!-- 入ゼミ方法（カードにせずテキストで） -->
-<!-- 入ゼミ方法 -->
-<section class="section">
-  <div class="container recruit-method">
-    <h2 class="recruit-section-title">入ゼミ方法</h2>
-
-    <p class="section-lead recruit-lead">
-      津曲ゼミでは、「ミクロ経済学への興味」と「人柄」を大事にして選考を行います。<br>
-      数式だけをガチガチに解けるかどうかよりも、理論を整理して考えられるかを見ています。
-    </p>
-
-    <div class="recruit-cards">
-      <!-- STEP1 -->
-      <div class="recruit-card">
-        <div class="recruit-step">STEP 1</div>
-        <h3>オンライン試験</h3>
+  <!-- =========================
+       HERO (RECRUIT)
+  ========================== -->
+  <section class="page-hero page-hero-recruit">
+    <div class="container page-hero-inner">
+      <p class="page-label">入ゼミ情報</p>
+      <h1 class="page-title">RECRUIT</h1>
+      <p class="page-lead">
+        津曲ゼミの入ゼミ方法と、過去の試験問題をまとめています
+      </p>
+    </div>
+  </section>
 
 
-        <p>
-          初級ミクロ経済学の問題を通し<br>
-          <strong>論理的に考える力</strong>を確認します
-        </p>
-        
+  <!-- =========================
+       ENTRY METHOD
+  ========================== -->
+  <section class="section">
+    <div class="container recruit-method">
+
+      <h2 class="recruit-section-title">入ゼミ方法</h2>
+
+      <p class="section-lead recruit-lead">
+        津曲ゼミでは、「ミクロ経済学への興味」と「人柄」を大事にして選考を行います。<br>
+        数式だけをガチガチに解けるかどうかよりも、理論を整理して考えられるかを見ています。
+      </p>
+
+      <div class="recruit-cards">
+
+        <!-- STEP 1 -->
+        <div class="recruit-card">
+          <div class="recruit-step">STEP 1</div>
+          <h3>オンライン試験</h3>
+          <p>
+            初級ミクロ経済学の問題を通し<br>
+            <strong>論理的に考える力</strong>を確認します
+          </p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="recruit-card">
+          <div class="recruit-step">STEP 2</div>
+          <h3>オンライン面接</h3>
+
+          <p>
+            ゼミの志望理由・これまでの経験<br>
+            関心のあるテーマについて<br>
+            お聞きします
+          </p>
+
+          <p>
+            難しい専門用語は必要なく<br>
+            <strong>自分の言葉で素直に<br>
+            話してくれればOK</strong>です
+          </p>
+        </div>
+
+        <!-- STEP 3 / INFO -->
+        <div class="recruit-card">
+          <div class="recruit-step">INFO</div>
+          <h3>募集人数・求める人物像</h3>
+
+          <p>
+            募集人数の目安は<strong>約20名</strong><br>
+            「データと理論で両面から考えてみたい！」「ゼミで頑張りたい！」という人を大歓迎します
+          </p>
+
+          <ul class="recruit-points">
+            <!-- ここは元コードのまま（項目未記載） -->
+          </ul>
+        </div>
+
+      </div><!-- /.recruit-cards -->
+
+      <p class="recruit-note">
+        ※ 具体的なスケジュールやエントリー方法は、経済学部の公式案内もあわせて確認してください。
+      </p>
+
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- =========================
+       FAQ
+  ========================== -->
+  <section class="section recruit-faq">
+    <div class="container">
+
+      <div class="section-header">
+        <p class="section-eyebrow">FAQ</p>
+        <h2 class="section-title">よくある質問</h2>
       </div>
 
-      <!-- STEP2 -->
-      <div class="recruit-card">
-        <div class="recruit-step">STEP 2</div>
-        <h3>オンライン面接</h3>
-        <p>
-          ゼミの志望理由・これまでの経験<br>
-関心のあるテーマについて<br>
-お聞きします
-         </p>
+      <div class="faq-list">
 
-        <p>
-         難しい専門用語は必要なく<br>
-<strong>自分の言葉で素直に<br>
-話してくれればOK</strong>です
-        </p>
-        
+        <details class="faq-item">
+          <summary>ゼミの課題は多いですか？</summary>
+          <div class="faq-content">
+            <p>
+              量よりも「考える深さ」を重視しています。<br>
+              毎週の準備は必要ですが、丸暗記型の課題はありません。
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>数学や統計が得意でなくても大丈夫ですか？</summary>
+          <div class="faq-content">
+            <p>
+              問題ありません。<br>
+              基礎から丁寧に扱い、ゼミ内でのフォローも行います。
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Rやプログラミング経験は必要ですか？</summary>
+          <div class="faq-content">
+            <p>
+              事前知識は不要です。<br>
+              授業内で使い方から学びます。
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>他のゼミやサークルとの両立は可能ですか？</summary>
+          <div class="faq-content">
+            <p>
+              多くのゼミ生が両立しています。<br>
+              ただし、ゼミへの主体的な参加は前提としています。
+            </p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>他学部生やPEARL生でも応募できますか？</summary>
+          <div class="faq-content">
+            <p>
+              はい、他学部生・PEARL生のいずれも受け付けています。<br>
+              津曲ゼミでは、所属学部やプログラムに関わらず、
+              行動経済学・ゲーム理論・マッチング理論に関心のある学生を歓迎しています。
+              実際に、これまでにも他学部やPEARL生が在籍しており、
+              バックグラウンドの違いを活かした議論が行われています。
+            </p>
+          </div>
+        </details>
+
+        <div class="faq-note">
+          <p>
+            FAQにないことや、少し聞きにくいことでも大丈夫です！ ゼミ公式InstagramのDMにて、お気軽にご質問ください。
+          </p>
+        </div>
+
+      </div><!-- /.faq-list -->
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       PAST EXAMS (PDF)
+  ========================== -->
+  <section class="section section-alt">
+    <div class="container">
+
+      <h2 class="pdf-section-title">過去問ダウンロード</h2>
+
+      <p class="section-lead">
+        これまでの入ゼミ試験問題をPDFで公開しています。<br>
+        雰囲気をつかむための参考として活用してください。
+      </p>
+
+      <div class="pdf-grid">
+
+        <a href="past_exam_2024.pdf" class="pdf-card" target="_blank" rel="noopener">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-content">
+            <p class="pdf-title">2024年度 入ゼミ試験 過去問</p>
+            <p class="pdf-meta">クリックすると別タブで開きます。</p>
+          </div>
+          <span class="pdf-arrow">↗</span>
+        </a>
+
+        <a href="pdf/past_exam_2023.pdf" class="pdf-card" target="_blank" rel="noopener">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-content">
+            <p class="pdf-title">2023年度 入ゼミ試験 過去問</p>
+            <p class="pdf-meta">クリックすると別タブで開きます。</p>
+          </div>
+          <span class="pdf-arrow">↗</span>
+        </a>
+
+        <a href="pdf/past_exam_2022.pdf" class="pdf-card" target="_blank" rel="noopener">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-content">
+            <p class="pdf-title">2022年度 入ゼミ試験 過去問</p>
+            <p class="pdf-meta">クリックすると別タブで開きます。</p>
+          </div>
+          <span class="pdf-arrow">↗</span>
+        </a>
+
+        <a href="pdf/past_exam_2021A.pdf" class="pdf-card" target="_blank" rel="noopener">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-content">
+            <p class="pdf-title">2021年度 A日程入ゼミ試験 過去問</p>
+            <p class="pdf-meta">クリックすると別タブで開きます。</p>
+          </div>
+          <span class="pdf-arrow">↗</span>
+        </a>
+
+        <a href="pdf/past_exam_2021B.pdf" class="pdf-card" target="_blank" rel="noopener">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-content">
+            <p class="pdf-title">2021年度 B日程入ゼミ試験 過去問</p>
+            <p class="pdf-meta">クリックすると別タブで開きます。</p>
+          </div>
+          <span class="pdf-arrow">↗</span>
+        </a>
+
+        <a href="pdf/past_exam_2020A.pdf" class="pdf-card" target="_blank" rel="noopener">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-content">
+            <p class="pdf-title">2020年度 A日程入ゼミ試験 過去問</p>
+            <p class="pdf-meta">クリックすると別タブで開きます。</p>
+          </div>
+          <span class="pdf-arrow">↗</span>
+        </a>
+
+        <a href="pdf/past_exam_2018+2019.pdf" class="pdf-card" target="_blank" rel="noopener">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-content">
+            <p class="pdf-title">2018年度･2019年度 入ゼミ試験 過去問</p>
+            <p class="pdf-meta">クリックすると別タブで開きます。</p>
+          </div>
+          <span class="pdf-arrow">↗</span>
+        </a>
+
+        <!-- 追加したくなったらコピペして年度だけ変えればOK
+        <a href="past_exam_2023.pdf" class="pdf-card" target="_blank" rel="noopener">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-content">
+            <p class="pdf-title">2023年度 入ゼミ試験 過去問</p>
+            <p class="pdf-meta">クリックすると別タブで開きます。</p>
+          </div>
+          <span class="pdf-arrow">↗</span>
+        </a>
+        -->
+
+      </div><!-- /.pdf-grid -->
+    </div>
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <!-- Left -->
+      <div class="footer-left">
+        <p class="footer-logo-en">Keio University Tsumagari Seminar</p>
+        <p class="footer-logo-jp">慶應義塾大学経済学部 津曲研究会</p>
+        <p class="footer-copy">© 2025 津曲正俊研究会</p>
       </div>
 
-      <!-- STEP3 / 募集人数 -->
-      <div class="recruit-card">
-        <div class="recruit-step">INFO</div>
-        <h3>募集人数・求める人物像</h3>
-        <p>
-          募集人数の目安は<strong>約20名</strong><br>
-          「データと理論で両面から考えてみたい！」「ゼミで頑張りたい！」という人を大歓迎します
-        </p>
-        <ul class="recruit-points">
-          
-    </div>
+      <!-- Center -->
+      <nav class="footer-nav">
+        <a href="index.html">HOME</a>
+        <a href="news.html">NEWS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="professor.html">PROFESSOR</a>
+        <a href="recruit.html">RECRUIT</a>
+      </nav>
 
-    <p class="recruit-note">
-      ※ 具体的なスケジュールやエントリー方法は、経済学部の公式案内もあわせて確認してください。
-    </p>
-  </div>
-</section>
-
-
-<section class="section recruit-faq">
-  <div class="container">
-
-    <div class="section-header">
-      <p class="section-eyebrow">FAQ</p>
-      <h2 class="section-title">よくある質問</h2>
-    </div>
-
-    <div class="faq-list">
-
-      <details class="faq-item">
-        <summary>ゼミの課題は多いですか？</summary>
-
-       <div class="faq-content">
-        <p>
-          量よりも「考える深さ」を重視しています。<br>
-          毎週の準備は必要ですが、丸暗記型の課題はありません。
-        </p>
+      <!-- Right -->
+      <div class="footer-sns">
+        <a
+          href="https://www.instagram.com/tsumagari_seminar_2025?igsh=MTl6cGx6N3Q2cXZwcA%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener"
+          class="footer-instagram"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <circle cx="17.2" cy="6.8" r="1.3"></circle>
+          </svg>
+        </a>
       </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>数学や統計が得意でなくても大丈夫ですか？</summary>
-     
-       <div class="faq-content">
-        <p>
-          問題ありません。<br>
-          基礎から丁寧に扱い、ゼミ内でのフォローも行います。
-        </p>
-       </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Rやプログラミング経験は必要ですか？</summary>
-
-
-       <div class="faq-content">
-        <p>
-          事前知識は不要です。<br>
-          授業内で使い方から学びます。
-        </p>
-       </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>他のゼミやサークルとの両立は可能ですか？</summary>
-
-       <div class="faq-content">
-        <p>
-          多くのゼミ生が両立しています。<br>
-          ただし、ゼミへの主体的な参加は前提としています。
-        </p>
-       </div>
-      </details>
-
-     <details class="faq-item">
-    <summary>他学部生やPEARL生でも応募できますか？</summary>
-    <div class="faq-content">
-    <p>
-      はい、他学部生・PEARL生のいずれも受け付けています。<br>
-      津曲ゼミでは、所属学部やプログラムに関わらず、
-      行動経済学・ゲーム理論・マッチング理論に関心のある学生を歓迎しています。
-      実際に、これまでにも他学部やPEARL生が在籍しており、
-      バックグラウンドの違いを活かした議論が行われています。
-    </p>
-  </div>
-</details>
-
-
-    <div class="faq-note">
-    <p>
-      FAQにないことや、少し聞きにくいことでも大丈夫です！ ゼミ公式InstagramのDMにて、お気軽にご質問ください。
-    </p>
-  </div>
-
 
     </div>
+  </footer>
 
-  </div>
-</section>
+  <!-- Nav overlay (as-is) -->
+  <div class="nav-overlay"></div>
 
+  <!-- =========================
+       JS
+  ========================== -->
+  <script src="script.js"></script>
 
-
-<!-- 過去問PDF -->
-<section class="section section-alt">
-  <div class="container">
-    <h2 class="pdf-section-title">過去問ダウンロード</h2>
-    <p class="section-lead">
-      これまでの入ゼミ試験問題をPDFで公開しています。<br>
-      雰囲気をつかむための参考として活用してください。
-    </p>
-
-    <div class="pdf-grid">
-      <!-- 1つ目の過去問カード（ファイル名は自分のPDFに合わせて変えてね） -->
-      <a href="past_exam_2024.pdf" class="pdf-card" target="_blank" rel="noopener">
-        <div class="pdf-icon">PDF</div>
-        <div class="pdf-content">
-          <p class="pdf-title">2024年度 入ゼミ試験 過去問</p>
-          <p class="pdf-meta">クリックすると別タブで開きます。</p>
-        </div>
-        <span class="pdf-arrow">↗</span>
-      </a>
- <a href="pdf/past_exam_2023.pdf" class="pdf-card" target="_blank" rel="noopener">
-        <div class="pdf-icon">PDF</div>
-        <div class="pdf-content">
-          <p class="pdf-title">2023年度 入ゼミ試験 過去問</p>
-          <p class="pdf-meta">クリックすると別タブで開きます。</p>
-        </div>
-        <span class="pdf-arrow">↗</span>
-      </a>
- <a href="pdf/past_exam_2022.pdf" class="pdf-card" target="_blank" rel="noopener">
-        <div class="pdf-icon">PDF</div>
-        <div class="pdf-content">
-          <p class="pdf-title">2022年度 入ゼミ試験 過去問</p>
-          <p class="pdf-meta">クリックすると別タブで開きます。</p>
-        </div>
-        <span class="pdf-arrow">↗</span>
-      </a>
-
-
-   <a href="pdf/past_exam_2021A.pdf" class="pdf-card" target="_blank" rel="noopener">
-        <div class="pdf-icon">PDF</div>
-        <div class="pdf-content">
-          <p class="pdf-title">2021年度 A日程入ゼミ試験 過去問</p>
-          <p class="pdf-meta">クリックすると別タブで開きます。</p>
-        </div>
-        <span class="pdf-arrow">↗</span>
-      </a>
-
-   <a href="pdf/past_exam_2021B.pdf" class="pdf-card" target="_blank" rel="noopener">
-        <div class="pdf-icon">PDF</div>
-        <div class="pdf-content">
-          <p class="pdf-title">2021年度 B日程入ゼミ試験 過去問</p>
-          <p class="pdf-meta">クリックすると別タブで開きます。</p>
-        </div>
-        <span class="pdf-arrow">↗</span>
-      </a>
-
-   <a href="pdf/past_exam_2020A.pdf" class="pdf-card" target="_blank" rel="noopener">
-        <div class="pdf-icon">PDF</div>
-        <div class="pdf-content">
-          <p class="pdf-title">2020年度 A日程入ゼミ試験 過去問</p>
-          <p class="pdf-meta">クリックすると別タブで開きます。</p>
-        </div>
-        <span class="pdf-arrow">↗</span>
-      </a>
-
-<a href="pdf/past_exam_2018+2019.pdf" class="pdf-card" target="_blank" rel="noopener">
-        <div class="pdf-icon">PDF</div>
-        <div class="pdf-content">
-          <p class="pdf-title">2018年度･2019年度 入ゼミ試験 過去問</p>
-          <p class="pdf-meta">クリックすると別タブで開きます。</p>
-        </div>
-        <span class="pdf-arrow">↗</span>
-      </a>
-
-
-      <!-- 追加したくなったらコピペして年度だけ変えればOK
-      <a href="past_exam_2023.pdf" class="pdf-card" target="_blank" rel="noopener">
-        <div class="pdf-icon">PDF</div>
-        <div class="pdf-content">
-          <p class="pdf-title">2023年度 入ゼミ試験 過去問</p>
-          <p class="pdf-meta">クリックすると別タブで開きます。</p>
-        </div>
-        <span class="pdf-arrow">↗</span>
-      </a>
-
-      -->
-    </div>
-  </div>
-</section>
-
-<!-- フッター -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <!-- 左：ロゴ・著作権 -->
-    <div class="footer-left">
-      <p class="footer-logo-en">Keio University Tsumagari Seminar</p>
-      <p class="footer-logo-jp">慶應義塾大学経済学部 津曲研究会</p>
-      <p class="footer-copy">© 2025 津曲正俊研究会</p>
-    </div>
-
-    <!-- 中央：ナビゲーション -->
-    <nav class="footer-nav">
-      <a href="index.html">HOME</a>
-      <a href="news.html">NEWS</a>
-      <a href="about.html">ABOUT US</a>
-      <a href="professor.html">PROFESSOR</a>
-      <a href="recruit.html">RECRUIT</a>
-    </nav>
-
-    <!-- 右：Instagram -->
-    <div class="footer-sns">
-      <!-- Instagram の URL は自分のアカウントに書き換えてね -->
-      <a href="https://www.instagram.com/tsumagari_seminar_2025?igsh=MTl6cGx6N3Q2cXZwcA%3D%3D&utm_source=qr"
-         target="_blank"
-         rel="noopener"
-         class="footer-instagram"
-         aria-label="Instagram">
-        <!-- シンプルなインスタ風アイコン（SVG） -->
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-          <circle cx="12" cy="12" r="4.2"></circle>
-          <circle cx="17.2" cy="6.8" r="1.3"></circle>
-        </svg>
-      </a>
-    </div>
-  </div>
-</footer>
-
-<div class="nav-overlay"></div>
-
-<script src="script.js"></script>
 </body>
-
 </html>
