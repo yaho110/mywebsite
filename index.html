@@ -1,185 +1,229 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- =========================
+       META
+  ========================== -->
   <meta charset="UTF-8">
   <title>津曲正俊研究会｜慶應義塾大学 経済学部</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- =========================
+       CSS / FONTS
+  ========================== -->
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  >
 </head>
+
 <body>
 
-<header class="header">
-  <div class="container header-inner">
- <a href="index.html" class="logo">
-  <span class="logo-en">Keio University Tsumagari Seminar</span>
-  <span class="logo-jp">慶應義塾大学経済学部 津曲研究会</span>
-</a>
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="header">
+    <div class="container header-inner">
 
-    <!-- ハンバーガーボタンを追加 -->
-    <button class="nav-toggle" aria-label="メニューを開閉">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <span class="logo-en">Keio University Tsumagari Seminar</span>
+        <span class="logo-jp">慶應義塾大学経済学部 津曲研究会</span>
+      </a>
 
-    <!-- nav に nav クラスを追加（JS用） -->
-    <nav class="global-nav nav">
-      <a href="index.html" class="nav-current">HOME</a>
-      <a href="news.html">NEWS</a>
-      <a href="about.html">ABOUT US</a>
-      <a href="professor.html">PROFESSOR</a>
-      <a href="recruit.html">RECRUIT</a>
-    </nav>
-  </div>
-</header>
+      <!-- Hamburger button -->
+      <button class="nav-toggle" aria-label="メニューを開閉">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-<div class="nav-overlay"></div>
+      <!-- Global navigation -->
+      <nav class="global-nav nav">
+        <a href="index.html" class="nav-current">HOME</a>
+        <a href="news.html">NEWS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="professor.html">PROFESSOR</a>
+        <a href="recruit.html">RECRUIT</a>
+      </nav>
 
-
-<section class="hero">
-  <div class="hero-overlay">
-    <div class="container hero-inner">
-      <p class="hero-tag">行動経済学 × ゲーム理論</p>
-      <h1>津曲正俊研究会</h1>
-      <p class="hero-text">
-        恋愛の駆け引きから社会制度まで <br>
-        人の行動を手がかりに、仕組みを考えるゼミです
-      </p>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="about" class="section">
-  <div class="section-header">
-  <p class="section-eyebrow">ABOUT THE SEMINAR</p>
-  <h2 class="section-title">津曲ゼミってどんなゼミ？</h2>
-</div>
+  <!-- Nav overlay -->
+  <div class="nav-overlay"></div>
 
 
-  <!-- フル幅ビジュアル -->
-  <div class="seminar-visual">
-    <div class="seminar-visual-overlay">
-      <div class="seminar-visual-inner">
-        <span class="visual-label">Seminar Concept</span>
-        <h2>
-          日常の<strong>「なぜ？」</strong>を<br>
-          理論で解きほぐす
-        </h2>
-        <p>
-          人の行動原理と社会システム設計に焦点を当てたゼミです。<br>
-行動経済学、ゲーム理論、マッチング理論という実用的なフレームワークを用いて<br>
-身近な事例を構造的に解析し、応用力を鍛えます。
+  <!-- =========================
+       HERO
+  ========================== -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="container hero-inner">
+        <p class="hero-tag">行動経済学 × ゲーム理論</p>
+        <h1>津曲正俊研究会</h1>
+        <p class="hero-text">
+          恋愛の駆け引きから社会制度まで <br>
+          人の行動を手がかりに、仕組みを考えるゼミです
         </p>
       </div>
     </div>
-  </div>
-
-  <div class="container">
-    <p class="section-lead">
-      一見難しそうに見える理論を、<strong>「日常のナゾ解き」</strong>として学びます。
-    </p>
-
-    <div class="feature-grid">
- <div class="feature-card feature-with-image">
-  <div class="feature-image">
-    <img src="images/theory1.jpg" alt="理論を学ぶ">
-  </div>
-  <div class="feature-content">
-    <h3>理論を学ぶ</h3>
-    <p>
-      ゲーム理論、行動経済学、マッチング理論など、最先端の理論を駆使し<br>
-「人はなぜその選択をするのか」さらに「社会の仕組みはどう設計されるべきか」を構造的に理解します。
-    </p>
-  </div>
-</div>
-
-<div class="feature-card feature-with-image">
-  <div class="feature-image">
-    <img src="images/theory2.jpg" alt="データ分析">
-  </div>
-  <div class="feature-content">
-    <h3>リアルな世界を検証する</h3>
-    <p>
-      統計ソフトRをメインツールとして使用。<br>
-       実社会から得られたデータを扱い、理論モデルの妥当性や新たな真実を<br>
-データドリブンな手法で厳密に検証・証明していきます。
-      
-    </p>
-  </div>
-</div>
-
-<div class="feature-card feature-with-image">
-  <div class="feature-image">
-    <img src="images/theory3.jpg" alt="ゼミの進め方">
-  </div>
-  <div class="feature-content">
-    <h3>発信と探求の場</h3>
-    <p>
-      学生が主体となるプレゼンテーションやディスカッション形式を採用しています。<br>
-      自分の言葉でロジックを説明し、他者との対話を通じて、知的探求を深く<br>
-多角的に進めます。
-    </p>
-  </div>
-</div>
-
- <a href="about.html" class="more-btn">→ MORE</a>
-  </div>
-</section>
-
-<!-- ここからトップ NEWS -->
+  </section>
 
 
-<div class="top-news">
-  <div class="top-news-head">
-    <span class="top-news-label">LATEST NEWS</span>
-    <a href="news.html" class="top-news-link">NEWS一覧へ →</a>
-  </div>
+  <!-- =========================
+       ABOUT (TOP)
+  ========================== -->
+  <section id="about" class="section">
 
-  <ul id="top-news-list"></ul>
-</div>
-
-
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <!-- 左：ロゴ・著作権 -->
-    <div class="footer-left">
-      <p class="footer-logo-en">Keio University Tsumagari Seminar</p>
-      <p class="footer-logo-jp">慶應義塾大学経済学部 津曲研究会</p>
-      <p class="footer-copy">© 2025 津曲正俊研究会</p>
+    <!-- Section header -->
+    <div class="section-header">
+      <p class="section-eyebrow">ABOUT THE SEMINAR</p>
+      <h2 class="section-title">津曲ゼミってどんなゼミ？</h2>
     </div>
 
-    <!-- 中央：ナビゲーション -->
-    <nav class="footer-nav">
-      <a href="index.html">HOME</a>
-      <a href="news.html">NEWS</a>
-      <a href="about.html">ABOUT US</a>
-      <a href="professor.html">PROFESSOR</a>
-      <a href="recruit.html">RECRUIT</a>
-    </nav>
-
-    <!-- 右：Instagram -->
-    <div class="footer-sns">
-      <!-- Instagram の URL は自分のアカウントに書き換えてね -->
-      <a href=https://www.instagram.com/tsumagari_seminar_2025?igsh=MTl6cGx6N3Q2cXZwcA%3D%3D&utm_source=qr"
-         target="_blank"
-         rel="noopener"
-         class="footer-instagram"
-         aria-label="Instagram">
-        <!-- シンプルなインスタ風アイコン（SVG） -->
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-          <circle cx="12" cy="12" r="4.2"></circle>
-          <circle cx="17.2" cy="6.8" r="1.3"></circle>
-        </svg>
-      </a>
+    <!-- Full width visual -->
+    <div class="seminar-visual">
+      <div class="seminar-visual-overlay">
+        <div class="seminar-visual-inner">
+          <span class="visual-label">Seminar Concept</span>
+          <h2>
+            日常の<strong>「なぜ？」</strong>を<br>
+            理論で解きほぐす
+          </h2>
+          <p>
+            人の行動原理と社会システム設計に焦点を当てたゼミです。<br>
+            行動経済学、ゲーム理論、マッチング理論という実用的なフレームワークを用いて<br>
+            身近な事例を構造的に解析し、応用力を鍛えます。
+          </p>
+        </div>
+      </div>
     </div>
+
+    <!-- Main content -->
+    <div class="container">
+
+      <p class="section-lead">
+        一見難しそうに見える理論を、<strong>「日常のナゾ解き」</strong>として学びます。
+      </p>
+
+      <!-- Feature cards -->
+      <div class="feature-grid">
+
+        <!-- Feature 1 -->
+        <div class="feature-card feature-with-image">
+          <div class="feature-image">
+            <img src="images/theory1.jpg" alt="理論を学ぶ">
+          </div>
+          <div class="feature-content">
+            <h3>理論を学ぶ</h3>
+            <p>
+              ゲーム理論、行動経済学、マッチング理論など、最先端の理論を駆使し<br>
+              「人はなぜその選択をするのか」さらに「社会の仕組みはどう設計されるべきか」を構造的に理解します。
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card feature-with-image">
+          <div class="feature-image">
+            <img src="images/theory2.jpg" alt="データ分析">
+          </div>
+          <div class="feature-content">
+            <h3>リアルな世界を検証する</h3>
+            <p>
+              統計ソフトRをメインツールとして使用。<br>
+              実社会から得られたデータを扱い、理論モデルの妥当性や新たな真実を<br>
+              データドリブンな手法で厳密に検証・証明していきます。
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card feature-with-image">
+          <div class="feature-image">
+            <img src="images/theory3.jpg" alt="ゼミの進め方">
+          </div>
+          <div class="feature-content">
+            <h3>発信と探求の場</h3>
+            <p>
+              学生が主体となるプレゼンテーションやディスカッション形式を採用しています。<br>
+              自分の言葉でロジックを説明し、他者との対話を通じて、知的探求を深く<br>
+              多角的に進めます。
+            </p>
+          </div>
+        </div>
+
+        <!-- More button -->
+        <a href="about.html" class="more-btn">→ MORE</a>
+
+      </div><!-- /.feature-grid -->
+
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- =========================
+       TOP NEWS
+  ========================== -->
+  <div class="top-news">
+    <div class="top-news-head">
+      <span class="top-news-label">LATEST NEWS</span>
+      <a href="news.html" class="top-news-link">NEWS一覧へ →</a>
+    </div>
+
+    <ul id="top-news-list"></ul>
   </div>
-</footer>
 
 
-<script src="script.js"></script>
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <!-- Left -->
+      <div class="footer-left">
+        <p class="footer-logo-en">Keio University Tsumagari Seminar</p>
+        <p class="footer-logo-jp">慶應義塾大学経済学部 津曲研究会</p>
+        <p class="footer-copy">© 2025 津曲正俊研究会</p>
+      </div>
+
+      <!-- Center -->
+      <nav class="footer-nav">
+        <a href="index.html">HOME</a>
+        <a href="news.html">NEWS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="professor.html">PROFESSOR</a>
+        <a href="recruit.html">RECRUIT</a>
+      </nav>
+
+      <!-- Right -->
+      <div class="footer-sns">
+        <a
+          href="https://www.instagram.com/tsumagari_seminar_2025?igsh=MTl6cGx6N3Q2cXZwcA%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener"
+          class="footer-instagram"
+          aria-label="Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <circle cx="17.2" cy="6.8" r="1.3"></circle>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =========================
+       JS
+  ========================== -->
+  <script src="script.js"></script>
+
 </body>
 </html>
-
