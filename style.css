@@ -446,7 +446,7 @@ body {
   }
 
   .hero-overlay {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero-tag {
@@ -1999,6 +1999,7 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
 
 
