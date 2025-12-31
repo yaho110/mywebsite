@@ -313,7 +313,6 @@ body {
 
 .top-news-head {
   display: flex;
-  text-decoration: none;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 8px;
@@ -321,6 +320,7 @@ body {
 
 .top-news-label {
   font-size: 0.8rem;
+  text-decoration: none;
   letter-spacing: 0.18em;
   color: #999;
 }
@@ -1885,6 +1885,7 @@ body {
     height: 220px;
   }
 }
+
 
 
 
