@@ -1449,7 +1449,7 @@ body {
   background-repeat: no-repeat;
   height: 360px;
   display: flex;
-  align-items: left;
+  align-items: flex-start;
 }
 
 .page-hero.page-hero-news::before {
@@ -1589,7 +1589,7 @@ body {
   .page-hero-news .page-hero-inner {
     margin-left: 0;
     padding: 0 24px;
-    text-align: center;
+    text-align: left;
   }
 
   .news-item {
@@ -2008,6 +2008,7 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
 
 
