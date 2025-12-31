@@ -536,7 +536,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 12px 20px;
-  justify-content: center;
+  justify-content: flex-end;
   margin-top: 4px;
 }
 
@@ -1879,3 +1879,4 @@ body {
     height: 220px;
   }
 }
+
