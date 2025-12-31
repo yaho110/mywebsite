@@ -394,23 +394,30 @@ body {
 /* =========================
    スマホ版：丸い画像だけ中央寄せ
 ========================= */
+/* === FIX: featureの丸画像をスマホで確実に正円＋中央にする === */
 @media (max-width: 768px) {
-  .feature-card .feature-image {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto 12px;
-    overflow: hidden;
-    border-radius: 50%;
+  .feature-card.feature-with-image {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .feature-card .feature-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .feature-card.feature-with-image .feature-image {
+    width: 110px !important;
+    height: 110px !important;
+    margin: 0 auto 12px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    flex: 0 0 auto !important;
+  }
+
+  .feature-card.feature-with-image .feature-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
   }
 }
-
 
 
 /* =========================================================
@@ -618,10 +625,28 @@ body {
   line-height: 1.7;
 }
 
+/* === FIX: featureの丸画像をスマホで確実に正円＋中央にする === */
 @media (max-width: 768px) {
-  .feature-with-image {
+  .feature-card.feature-with-image {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .feature-card.feature-with-image .feature-image {
+    width: 110px !important;
+    height: 110px !important;
+    margin: 0 auto 12px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    flex: 0 0 auto !important;
+  }
+
+  .feature-card.feature-with-image .feature-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
   }
 }
 
@@ -1973,6 +1998,7 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
 
 
