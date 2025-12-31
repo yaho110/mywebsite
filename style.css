@@ -1108,6 +1108,23 @@ body {
     text-align: left;
   }
 }
+/* =========================
+   RECRUIT hero - mobile fix
+========================= */
+@media (max-width: 768px) {
+  .page-hero-recruit {
+    aspect-ratio: auto;              /* ← 3/4 を無効化 */
+    height: clamp(320px, 45vh, 400px); /* ← これが効く：端末差でも破綻しにくい */
+    min-height: 0;                   /* ← 520px縛りを解除 */
+    background-position: center 35%; /* ← 顔や主役が真ん中に来るよう微調整 */
+  }
+
+  .page-hero-recruit .page-hero-inner {
+    margin-left: 0;                  /* ← スマホで左余白を殺す */
+    padding: 0 24px;
+    max-width: 520px;                /* ← 文字幅が広がりすぎない */
+  }
+}
 
 
 /* =========================================================
@@ -2081,6 +2098,7 @@ body {
     text-align: left;
   }
 }
+
 
 
 
