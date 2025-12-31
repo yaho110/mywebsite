@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>管理者ログイン</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui; padding: 24px; }
+    input, button { width: 100%; padding: 8px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+
+  <h1>管理者ログイン</h1>
+
+  <input type="email" id="email" placeholder="ID（メール）">
+  <input type="password" id="password" placeholder="パスワード">
+
+  <button id="login-btn">ログイン</button>
+  <p id="error" style="color:red;"></p>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="login.js"></script>
+</body>
+</html>
