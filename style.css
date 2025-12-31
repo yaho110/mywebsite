@@ -2035,6 +2035,46 @@ body {
   }
 }
 
+/* =========================================================
+  HERO TEXT ALIGN FIX (MOBILE FINAL)
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* NEWS */
+  .page-hero.page-hero-news {
+    align-items: flex-start;
+  }
+
+  .page-hero.page-hero-news .page-hero-inner {
+    margin-left: 0;
+    padding: 0 24px;
+    text-align: left;
+  }
+
+  /* ABOUT（独立 hero） */
+  .page-hero-about {
+    align-items: flex-start;
+  }
+
+  .page-hero-about .page-hero-inner {
+    margin-left: 0;
+    padding: 0 24px;
+    text-align: left;
+  }
+
+  /* RECRUIT（独立 hero） */
+  .page-hero-recruit {
+    align-items: flex-start;
+  }
+
+  .page-hero-recruit .page-hero-inner {
+    margin-left: 0;
+    padding: 0 24px;
+    text-align: left;
+  }
+}
+
 
 
 
