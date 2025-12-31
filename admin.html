@@ -4,15 +4,58 @@
   <meta charset="UTF-8" />
   <title>NEWS 管理画面</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
-    body { font-family: system-ui, -apple-system, sans-serif; padding: 24px; }
-    label { display: block; margin-top: 12px; }
-    input, textarea, select, button {
-      width: 100%; padding: 8px; margin-top: 4px;
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 32px;
+      background: #fafafa;
     }
-    button { margin-top: 16px; }
+
+    h1 {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      font-weight: 500;
+    }
+
+    input,
+    textarea,
+    select,
+    button {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 24px;
+      background: #111;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #666;
+    }
   </style>
 </head>
+
 <body>
 
   <h1>NEWS 管理画面</h1>
@@ -42,15 +85,45 @@
       <textarea id="text" rows="5" required></textarea>
     </label>
 
-<label>
-  添付ファイル（PDFなど）
-  <input type="file" id="file" accept=".pdf,.doc,.docx,.ppt,.pptx" />
-</label>
+    <label>
+      添付ファイル（PDFなど・任意）
+      <input
+        type="file"
+        id="file"
+        accept=".pdf,.doc,.docx,.ppt,.pptx"
+      />
+    </label>
 
-    <button type="submit">投稿</button>
+    <button type="submit">投稿する</button>
+
+    <p class="note">
+      ※ 投稿にはログインが必要です
+    </p>
   </form>
 
+  <!-- Firebase 初期化 -->
   <script type="module" src="firebase.js"></script>
+  <!-- 投稿処理 -->
   <script type="module" src="admin.js"></script>
+
+  <!-- ===== 認証ガード（最重要） ===== -->
+  <script type="module">
+    import { auth } from "./firebase.js";
+    import { onAuthStateChanged }
+      from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+
+    // 一瞬表示されるのを防ぐ
+    document.body.style.visibility = "hidden";
+
+    onAuthStateChanged(auth, user => {
+      if (!user) {
+        // 未ログインなら強制的にトップへ
+        location.href = "index.html";
+      } else {
+        document.body.style.visibility = "visible";
+      }
+    });
+  </script>
+
 </body>
 </html>
