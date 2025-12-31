@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>NEWS 管理画面</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; padding: 24px; }
+    label { display: block; margin-top: 12px; }
+    input, textarea, select, button {
+      width: 100%; padding: 8px; margin-top: 4px;
+    }
+    button { margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <h1>NEWS 管理画面</h1>
+
+  <form id="news-form">
+    <label>
+      日付
+      <input type="date" id="date" required />
+    </label>
+
+    <label>
+      タグ
+      <select id="tag">
+        <option value="入ゼミ情報">入ゼミ情報</option>
+        <option value="イベント">イベント</option>
+        <option value="お知らせ">お知らせ</option>
+      </select>
+    </label>
+
+    <label>
+      タイトル
+      <input type="text" id="title" required />
+    </label>
+
+    <label>
+      本文
+      <textarea id="text" rows="5" required></textarea>
