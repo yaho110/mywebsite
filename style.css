@@ -821,6 +821,15 @@ body {
 }
 
 /* =========================================================
+  PAGE HERO TEXT ALIGN (DEFAULT)
+========================================================= */
+
+.page-hero-inner {
+  text-align: left;
+}
+
+
+/* =========================================================
   PROFESSOR PAGE
 ========================================================= */
 
@@ -1440,7 +1449,7 @@ body {
   background-repeat: no-repeat;
   height: 360px;
   display: flex;
-  align-items: center;
+  align-items: left;
 }
 
 .page-hero.page-hero-news::before {
@@ -1999,6 +2008,7 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
 
 
