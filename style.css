@@ -1116,7 +1116,6 @@ body {
     aspect-ratio: auto;              /* ← 3/4 を無効化 */
     height: clamp(320px, 45vh, 400px); /* ← これが効く：端末差でも破綻しにくい */
     min-height: 0;                   /* ← 520px縛りを解除 */
-    background-position: center 35%; /* ← 顔や主役が真ん中に来るよう微調整 */
   }
 
   .page-hero-recruit .page-hero-inner {
@@ -2098,6 +2097,7 @@ body {
     text-align: left;
   }
 }
+
 
 
 
