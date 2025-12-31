@@ -402,6 +402,30 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  /* スマホは縦積みにする（ここが肝） */
+  .feature-card.feature-with-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* ←中身のブロックを中央へ */
+    text-align: center;      /* ←文章も中央なら */
+  }
+
+  /* 画像ブロック自体を中央に置く */
+  .feature-card.feature-with-image .feature-image {
+    width: 100%;
+    display: block;
+    margin: 0 auto 12px;
+  }
+
+  /* 画像そのものも中央 */
+  .feature-card.feature-with-image .feature-image img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
 /* =========================================================
   FOOTER (SIMPLE)
 ========================================================= */
@@ -1962,6 +1986,7 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
 
 
