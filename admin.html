@@ -4,126 +4,120 @@
   <meta charset="UTF-8" />
   <title>NEWS 管理画面</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      padding: 32px;
-      background: #fafafa;
-    }
+    body { font-family: system-ui, -apple-system, sans-serif; padding: 32px; background:#fafafa; }
+    h1 { margin-bottom: 16px; }
+    .wrap { display:grid; grid-template-columns: 1fr 1.2fr; gap:24px; align-items:start; }
+    @media (max-width: 900px){ .wrap{ grid-template-columns:1fr; } }
 
-    h1 {
-      margin-bottom: 24px;
-    }
+    .card { background:#fff; border:1px solid #eee; border-radius:14px; padding:18px; }
+    label { display:block; margin-top:12px; font-weight:600; font-size:13px; }
+    input, textarea, select, button { width:100%; padding:10px; margin-top:6px; font-size:14px; }
+    textarea{ resize:vertical; }
+    button { border:none; cursor:pointer; border-radius:10px; }
+    .btn-primary{ background:#111; color:#fff; }
+    .btn-ghost{ background:#f3f3f3; }
+    .btn-danger{ background:#c62828; color:#fff; }
+    .row { display:flex; gap:10px; margin-top:14px; }
+    .row > * { flex:1; }
 
-    label {
-      display: block;
-      margin-top: 16px;
-      font-weight: 500;
-    }
+    .muted{ color:#666; font-size:12px; margin-top:10px; }
+    .status{ margin-top:10px; font-size:13px; }
 
-    input,
-    textarea,
-    select,
-    button {
-      width: 100%;
-      margin-top: 6px;
-      padding: 10px;
-      font-size: 14px;
-    }
-
-    textarea {
-      resize: vertical;
-    }
-
-    button {
-      margin-top: 24px;
-      background: #111;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-
-    .note {
-      margin-top: 12px;
-      font-size: 13px;
-      color: #666;
-    }
+    table{ width:100%; border-collapse:collapse; }
+    th, td{ border-bottom:1px solid #eee; padding:10px; font-size:13px; vertical-align:top; }
+    th{ text-align:left; color:#666; font-weight:700; }
+    .title{ font-weight:700; }
+    .tag{ display:inline-block; padding:2px 8px; border-radius:999px; background:#f2f2f2; font-size:12px; }
+    .actions{ display:flex; gap:8px; }
+    .actions button{ width:auto; padding:7px 10px; border-radius:8px; }
   </style>
 </head>
 
 <body>
-
   <h1>NEWS 管理画面</h1>
 
-  <form id="news-form">
-    <label>
-      日付
-      <input type="date" id="date" required />
-    </label>
+  <div class="wrap">
+    <!-- 左：投稿/編集フォーム -->
+    <section class="card">
+      <h2 id="form-title" style="margin:0 0 10px;">新規投稿</h2>
 
-    <label>
-      タグ
-      <select id="tag">
-        <option value="入ゼミ情報">入ゼミ情報</option>
-        <option value="イベント">イベント</option>
-        <option value="お知らせ">お知らせ</option>
-      </select>
-    </label>
+      <form id="news-form">
+        <input type="hidden" id="editing-id" value="">
 
-    <label>
-      タイトル
-      <input type="text" id="title" required />
-    </label>
+        <label>日付
+          <input type="date" id="date" required />
+        </label>
 
-    <label>
-      本文
-      <textarea id="text" rows="5" required></textarea>
-    </label>
+        <label>タグ
+          <select id="tag">
+            <option value="入ゼミ情報">入ゼミ情報</option>
+            <option value="イベント">イベント</option>
+            <option value="お知らせ">お知らせ</option>
+          </select>
+        </label>
 
-    <label>
-      添付ファイル（PDFなど・任意）
-      <input
-        type="file"
-        id="file"
-        accept=".pdf,.doc,.docx,.ppt,.pptx"
-      />
-    </label>
+        <label>タイトル
+          <input type="text" id="title" required />
+        </label>
 
-    <button type="submit">投稿する</button>
+        <label>本文
+          <textarea id="text" rows="6" required></textarea>
+        </label>
 
-    <p class="note">
-      ※ 投稿にはログインが必要です
-    </p>
-  </form>
+        <label>添付ファイル（任意）
+          <input type="file" id="file" accept=".pdf,.doc,.docx,.ppt,.pptx" />
+        </label>
+
+        <div class="row">
+          <button class="btn-primary" type="submit" id="submit-btn">投稿する</button>
+          <button class="btn-ghost" type="button" id="cancel-edit-btn" disabled>編集をやめる</button>
+        </div>
+
+        <p class="muted">
+          ※ 編集中にファイルを選択すると、添付ファイルは差し替えられます。
+        </p>
+
+        <div class="status" id="status"></div>
+      </form>
+    </section>
+
+    <!-- 右：既存NEWS一覧 -->
+    <section class="card">
+      <h2 style="margin:0 0 10px;">投稿済みNEWS</h2>
+      <div class="muted">※「編集」で左フォームに読み込み、「削除」で完全削除。</div>
+
+      <div style="margin-top:12px; overflow:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:110px;">日付</th>
+              <th>内容</th>
+              <th style="width:160px;">操作</th>
+            </tr>
+          </thead>
+          <tbody id="news-admin-list">
+            <!-- JSで描画 -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
 
   <!-- Firebase 初期化 -->
   <script type="module" src="firebase.js"></script>
-  <!-- 投稿処理 -->
+  <!-- 管理画面ロジック -->
   <script type="module" src="admin.js"></script>
 
-  <!-- ===== 認証ガード（最重要） ===== -->
+  <!-- 認証ガード（未ログインなら追い出し） -->
   <script type="module">
     import { auth } from "./firebase.js";
-    import { onAuthStateChanged }
-      from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
-
-    // 一瞬表示されるのを防ぐ
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
     document.body.style.visibility = "hidden";
-
     onAuthStateChanged(auth, user => {
-      if (!user) {
-        // 未ログインなら強制的にトップへ
-        location.href = "index.html";
-      } else {
-        document.body.style.visibility = "visible";
-      }
+      if (!user) location.href = "index.html";
+      else document.body.style.visibility = "visible";
     });
   </script>
-
 </body>
 </html>
