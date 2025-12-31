@@ -1061,9 +1061,9 @@ body {
 
 @media (max-width: 768px) {
   .page-hero-recruit {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 3;
     height: auto;
-    min-height: 520px;
+    min-height: 420px;
     background-position: center center;
   }
 }
@@ -2081,6 +2081,7 @@ body {
     text-align: left;
   }
 }
+
 
 
 
