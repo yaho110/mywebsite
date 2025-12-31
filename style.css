@@ -395,23 +395,22 @@ body {
    スマホ版：丸い画像だけ中央寄せ
 ========================= */
 @media (max-width: 768px) {
-  /* 丸画像を入れてる枠を「正方形」に固定 */
-  .feature-card.feature-with-image .feature-image {
-    width: 110px;          /* 好みで調整 */
-    height: 110px;         /* widthと同じにする */
-    margin: 0 auto 12px;   /* 中央寄せ */
-    overflow: hidden;      /* はみ出し切る */
-    border-radius: 50%;    /* 枠を丸にする */
+  .feature-card .feature-image {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 12px;
+    overflow: hidden;
+    border-radius: 50%;
   }
 
-  /* 画像は枠いっぱいに敷き詰めて、比率を保ってトリミング */
-  .feature-card.feature-with-image .feature-image img {
+  .feature-card .feature-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 }
+
 
 
 /* =========================================================
@@ -1974,6 +1973,7 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
 
 
