@@ -391,6 +391,35 @@ body {
   color: #555;
 }
 
+/* =========================
+   スマホでも「画像 + 文字」を横並びにする
+========================= */
+@media (max-width: 768px) {
+  .feature-card.feature-with-image {
+    display: flex;
+    flex-direction: row;      /* ←縦積みをやめて横並び */
+    align-items: center;
+    gap: 14px;
+    text-align: left;         /* ←中央寄せ指定が効いてるならここで戻す */
+  }
+
+  .feature-card.feature-with-image .feature-image {
+    flex: 0 0 88px;           /* ←画像枠の幅固定（好みで調整） */
+    width: 88px;
+  }
+
+  .feature-card.feature-with-image .feature-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .feature-card.feature-with-image .feature-content {
+    flex: 1;
+  }
+}
+
+
 /* =========================================================
   FOOTER (SIMPLE)
 ========================================================= */
@@ -1951,4 +1980,5 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
