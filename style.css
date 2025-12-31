@@ -442,6 +442,7 @@ body {
     margin-top: 0;
     padding: 0 24px;
     max-width: none;
+    text-align: left;
   }
 
   .hero-overlay {
@@ -1998,6 +1999,7 @@ body {
     font-size: 0.85rem;
   }
 }
+
 
 
 
