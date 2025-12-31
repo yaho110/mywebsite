@@ -14,18 +14,25 @@
   PC / SP 専用改行制御
 ========================================================= */
 
-/* デフォルト（PC） */
+.pc-only {
+  display: inline;
+}
+
 .sp-only {
   display: none;
 }
 
-/* スマホ */
 @media (max-width: 768px) {
   .pc-only {
     display: none;
   }
+
   .sp-only {
     display: inline;
+  }
+
+  br.sp-only {
+    display: block;
   }
 }
 
@@ -2074,6 +2081,7 @@ body {
     text-align: left;
   }
 }
+
 
 
 
