@@ -1,7 +1,14 @@
 import { db } from "./firebase.js";
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy
+} from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
 console.log("Firebase OK", db);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
   /* ======================
      ハンバーガーメニュー
@@ -25,85 +32,94 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ======================
-     NEWS データ取得
-     （トップ + NEWS 一覧 両方）
+     NEWS データ取得（Firestore）
+     （トップ + NEWS 一覧）
   ====================== */
 
-  const topList  = document.getElementById("top-news-list"); // index.html 用
-  const newsList = document.getElementById("news-list");      // news.html 用
+  const topList  = document.getElementById("top-news-list"); // index.html
+  const newsList = document.getElementById("news-list");     // news.html
   const filterBtns = document.querySelectorAll(".news-filter-btn");
 
-  // どちらか片方でもあれば JSON を読む
   if (topList || newsList) {
-    fetch("news-data.json")
-      .then(res => res.json())
-      .then(news => {
-        // 新しい日付順にソート
-        news.sort((a, b) => new Date(b.date) - new Date(a.date));
+    try {
+      const q = query(
+        collection(db, "news"),
+        orderBy("date", "desc")
+      );
 
-        /* ----- ① トップページ用（3件だけ） ----- */
-        if (topList) {
-          topList.innerHTML = "";
-          news.slice(0, 3).forEach(item => {
-            const li = document.createElement("li");
-            li.innerHTML = `
-              <a href="news.html" class="top-news-item">
-                <time datetime="${item.date}">${formatDate(item.date)}</time>
-                <p>${item.title}</p>
-              </a>
-            `;
-            topList.appendChild(li);
+      const snapshot = await getDocs(q);
+      const news = snapshot.docs.map(doc => doc.data());
+
+      /* ----- ① トップページ用（最新3件） ----- */
+      if (topList) {
+        topList.innerHTML = "";
+        news.slice(0, 3).forEach(item => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <a href="news.html" class="top-news-item">
+              <time datetime="${item.date}">
+                ${formatDate(item.date)}
+              </time>
+              <p>${item.title}</p>
+            </a>
+          `;
+          topList.appendChild(li);
+        });
+      }
+
+      /* ----- ② NEWS 一覧ページ用 ----- */
+      if (newsList) {
+        renderNews(news);
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach(b => b.classList.remove("is-active"));
+            btn.classList.add("is-active");
+
+            const filter = btn.dataset.filter;
+            const filtered =
+              filter === "all"
+                ? news
+                : news.filter(item => item.tag === filter);
+
+            renderNews(filtered);
           });
-        }
+        });
+      }
 
-        /* ----- ② NEWS 一覧ページ用 ----- */
-        if (newsList) {
-          // 最初は全件表示
-          renderNews(news);
+      function renderNews(items) {
+        newsList.innerHTML = "";
+        items.forEach(item => {
+          const article = document.createElement("article");
+          article.className = "news-item";
+          article.innerHTML = `
+            <time class="news-date">
+              ${formatDate(item.date)}
+            </time>
+            <div class="news-body">
+              <span class="news-tag">${item.tag}</span>
+              <h2 class="news-title">${item.title}</h2>
+              <p class="news-text">${item.text}</p>
+              ${
+                item.link
+                  ? `<a href="${item.link}" class="news-link" target="_blank">
+                      資料を見る ↗
+                    </a>`
+                  : ""
+              }
+            </div>
+          `;
+          newsList.appendChild(article);
+        });
+      }
 
-          // フィルターボタン
-          filterBtns.forEach(btn => {
-            btn.addEventListener("click", () => {
-              filterBtns.forEach(b => b.classList.remove("is-active"));
-              btn.classList.add("is-active");
-
-              const filter = btn.dataset.filter;
-              const filtered =
-                filter === "all"
-                  ? news
-                  : news.filter(item => item.tag === filter);
-
-              renderNews(filtered);
-            });
-          });
-
-          function renderNews(items) {
-            newsList.innerHTML = "";
-            items.forEach(item => {
-              const article = document.createElement("article");
-              article.className = "news-item";
-              article.innerHTML = `
-                <time class="news-date">${formatDate(item.date)}</time>
-                <div class="news-body">
-                  <span class="news-tag">${item.tag}</span>
-                  <h2 class="news-title">${item.title}</h2>
-                  <p class="news-text">${item.text}</p>
-                  ${
-                    item.link
-                      ? `<a href="${item.link}" class="news-link">資料を見る ↗</a>`
-                      : ""
-                  }
-                </div>
-              `;
-              newsList.appendChild(article);
-            });
-          }
-        }
-      });
+    } catch (err) {
+      console.error("NEWS 読み込みエラー", err);
+    }
   }
 
   /* ======================
-     日付表示フォーマット
+     日付フォーマット
      2025-12-10 → 2025.12.10
   ====================== */
   function formatDate(dateStr) {
@@ -125,11 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buttons.forEach(btn => {
       btn.addEventListener("click", () => {
-        // 毎回リセット
         buttons.forEach(b => b.classList.remove("selected"));
         result.classList.remove("show");
 
-        // 今回の選択を反映
         btn.classList.add("selected");
         answerText.textContent =
           btn.dataset.choice === correct
@@ -142,4 +156,3 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-
