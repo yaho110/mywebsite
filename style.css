@@ -313,6 +313,7 @@ body {
 
 .top-news-head {
   display: flex;
+  text-decoration: none;
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 8px;
@@ -1884,5 +1885,6 @@ body {
     height: 220px;
   }
 }
+
 
 
