@@ -2,45 +2,7 @@
   GLOBAL / RESET
 ========================================================= */
 
-/* スマホだけ中央ぞろえ（現状維持） */
-@media (max-width: 768px) {
-  .section-title,
-  .section-lead {
-    text-align: center;
-  }
-}
-
-/* =========================================================
-  PC / SP 専用改行制御
-========================================================= */
-
-.pc-only {
-  display: inline;
-}
-
-.sp-only {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .pc-only {
-    display: none;
-  }
-
-  .sp-only {
-    display: inline;
-  }
-
-  br.sp-only {
-    display: block;
-  }
-}
-
-
-/* =========================================================
-  MAIN PAGE / BASE
-========================================================= */
-
+/* ベース */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -59,120 +21,12 @@ body {
   padding: 0 24px;
 }
 
-/* =========================================================
-  HEADER / LOGO
-========================================================= */
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 2000;
-  background: #fff;
-  padding: 24px 0;
-  border-bottom: 1px solid #eee;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+/* PC / SP 専用改行制御 */
+.pc-only {
+  display: inline;
 }
-
-.logo {
-  display: flex;
-  flex-direction: column; /* ← 縦並びはここだけ */
-  text-decoration: none;
-}
-
-.logo-en {
-  font-size: 0.75rem;
-  color: #666;
-}
-
-.logo-jp {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #111; /* 黒固定 */
-}
-
-/* =========================================================
-  HERO
-========================================================= */
-
-.hero {
-  position: relative;
-  padding: 120px 0;
-  min-height: 60vh;
-  background-image: url("images/hero.png");
-  background-size: cover;
-  background-position: center;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding: 88px 0;
-    min-height: 50vh; /* 少し低く */
-    background-position: center 40%;
-  }
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.75), /* 左をしっかり暗くする */
-    rgba(0, 0, 0, 0.45),
-    rgba(0, 0, 0, 0.15)
-  );
-  z-index: 1;
-}
-
-/* hero overlay（現状維持：重複定義もそのまま） */
-.hero-overlay {
-  /* background は消す */
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-overlay {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-overlay {
-  justify-content: flex-start;
-}
-
-.hero-inner {
-  color: #fff;
-  max-width: 520px; /* ← 文字幅を制限 */
-  margin-left: 120px; /* ← 今より左に */
-  margin-top: 135px; /* ← 下に下げる（ここがポイント） */
-}
-
-.hero-inner h1 {
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.hero-tag {
-  font-size: 1.4rem; /* 1.2 → 1.4 くらい */
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  opacity: 0.95;
-}
-
-.hero-inner h1 {
-  font-size: 3.6rem; /* 3.2 → 3.6 にアップ */
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  margin-bottom: 18px;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6); /* 影を少し強めに */
-}
-
-.hero-text {
-  font-size: 1.15rem;
-  opacity: 0.95;
+.sp-only {
+  display: none;
 }
 
 /* =========================================================
@@ -206,14 +60,211 @@ body {
   margin-bottom: 48px;
 }
 
-/* 「津曲ゼミってどんなゼミ？」セクション全体を中央寄せ */
+/* 「津曲ゼミってどんなゼミ？」 */
 .section-about-inner {
   text-align: center;
 }
-
-/* 見出しを少しだけ大きめ＆余白 */
 .section-title-center {
   margin-bottom: 16px;
+}
+
+/* =========================================================
+  HEADER / LOGO
+========================================================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background: #fff;
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.logo-en {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.logo-jp {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111;
+}
+
+/* =========================================================
+  HEADER NAVIGATION
+========================================================= */
+
+.global-nav {
+  display: flex;
+  gap: 32px;
+  z-index: 1000;
+}
+
+.global-nav a {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: #222;
+  position: relative;
+}
+
+.global-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: #222;
+  transition: width 0.3s ease;
+}
+
+.global-nav a:hover::after {
+  width: 100%;
+}
+
+/* current */
+.nav-current {
+  font-weight: 600;
+}
+.nav-current::after {
+  width: 100%;
+}
+
+/* hamburger */
+.nav-toggle {
+  display: none;
+  width: 32px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #222;
+  transition: 0.25s;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: 0;
+}
+.nav-toggle span:nth-child(2) {
+  top: 10px;
+}
+.nav-toggle span:nth-child(3) {
+  top: 20px;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  top: 10px;
+  transform: rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-45deg);
+}
+
+/* modal overlay */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 900;
+}
+.nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* =========================================================
+  HERO (HOME)
+========================================================= */
+
+.hero {
+  position: relative;
+  padding: 120px 0;
+  min-height: 60vh;
+  background-image: url("images/hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.15)
+  );
+  z-index: 1;
+}
+
+.hero-overlay {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  color: #fff;
+  max-width: 520px;
+  margin-left: 120px;
+  margin-top: 135px;
+}
+
+.hero-tag {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  opacity: 0.95;
+}
+
+.hero-inner h1 {
+  font-size: 3.6rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  opacity: 0.95;
 }
 
 /* =========================================================
@@ -289,7 +340,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px; /* ← ここもついでに広げる */
+  gap: 18px;
 }
 
 .top-news-item {
@@ -317,7 +368,7 @@ body {
 .top-news-item time {
   font-size: 0.85rem;
   color: #888;
-  min-width: 7em; /* 日付の幅をそろえる */
+  min-width: 7em;
 }
 
 .top-news-item p {
@@ -368,7 +419,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 36px;
-  max-width: 800px; /* 横幅をあえて抑える */
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -378,9 +429,6 @@ body {
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   text-align: center;
-}
-
-.feature-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -398,71 +446,36 @@ body {
   color: #555;
 }
 
-/* =========================
-   スマホ版：丸い画像だけ中央寄せ
-========================= */
-/* === FIX: featureの丸画像をスマホで確実に正円＋中央にする === */
-@media (max-width: 768px) {
-  .feature-card.feature-with-image {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .feature-card.feature-with-image .feature-image {
-    width: 110px !important;
-    height: 110px !important;
-    margin: 0 auto 12px !important;
-    border-radius: 50% !important;
-    overflow: hidden !important;
-    flex: 0 0 auto !important;
-  }
-
-  .feature-card.feature-with-image .feature-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
+/* feature image variant */
+.feature-with-image {
+  display: flex;
+  gap: 24px;
+  align-items: center;
 }
 
-
-/* =========================================================
-  FOOTER (SIMPLE)
-========================================================= */
-
-.footer {
-  padding: 40px 0;
-  background: #fafafa;
-  text-align: center;
-  font-size: 0.85rem;
-  color: #666;
+.feature-image {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #f2f2f2;
 }
 
-/* =========================================================
-  HERO (MOBILE OVERRIDE)
-========================================================= */
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-@media (max-width: 768px) {
-  .hero-inner {
-    margin-left: 0;
-    margin-top: 0;
-    padding: 0 24px;
-    max-width: none;
-    text-align: left;
-  }
+.feature-content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
 
-  .hero-overlay {
-    justify-content: flex-start;
-  }
-
-  .hero-tag {
-    font-size: 1rem;
-  }
-
-  .hero-inner h1 {
-    font-size: 2.4rem;
-  }
+.feature-content p {
+  color: #555;
+  line-height: 1.7;
 }
 
 /* =========================================================
@@ -474,9 +487,19 @@ body {
 }
 
 /* =========================================================
-  SITE FOOTER (FULL)
+  FOOTER
 ========================================================= */
 
+/* simple */
+.footer {
+  padding: 40px 0;
+  background: #fafafa;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* full */
 .site-footer {
   background: #fafafa;
   border-top: 1px solid #eee;
@@ -582,220 +605,6 @@ body {
   transform: translateY(-1px);
 }
 
-@media (max-width: 768px) {
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .footer-nav {
-    justify-content: flex-start;
-  }
-
-  .footer-sns {
-    justify-content: flex-start;
-  }
-}
-
-/* =========================================================
-  FEATURE CARDS (IMAGE)
-========================================================= */
-
-.feature-with-image {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
-
-.feature-image {
-  flex-shrink: 0;
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #f2f2f2;
-}
-
-.feature-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.feature-content h3 {
-  font-size: 1.15rem;
-  margin-bottom: 8px;
-}
-
-.feature-content p {
-  color: #555;
-  line-height: 1.7;
-}
-
-/* === FIX: featureの丸画像をスマホで確実に正円＋中央にする === */
-@media (max-width: 768px) {
-  .feature-card.feature-with-image {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .feature-card.feature-with-image .feature-image {
-    width: 110px !important;
-    height: 110px !important;
-    margin: 0 auto 12px !important;
-    border-radius: 50% !important;
-    overflow: hidden !important;
-    flex: 0 0 auto !important;
-  }
-
-  .feature-card.feature-with-image .feature-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
-}
-
-/* =========================================================
-  HEADER NAVIGATION
-========================================================= */
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.global-nav {
-  display: flex;
-  gap: 32px;
-}
-
-.global-nav a {
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  color: #222;
-  position: relative;
-}
-
-.global-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 1px;
-  background: #222;
-  transition: width 0.3s ease;
-}
-
-.global-nav a:hover::after {
-  width: 100%;
-}
-
-/* hamburger */
-.nav-toggle {
-  display: none;
-  width: 32px;
-  height: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-}
-
-.nav-toggle span {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #222;
-  transition: 0.25s;
-}
-
-.nav-toggle span:nth-child(1) {
-  top: 0;
-}
-.nav-toggle span:nth-child(2) {
-  top: 10px;
-}
-.nav-toggle span:nth-child(3) {
-  top: 20px;
-}
-
-.nav-toggle.open span:nth-child(1) {
-  top: 10px;
-  transform: rotate(45deg);
-}
-.nav-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.nav-toggle.open span:nth-child(3) {
-  top: 10px;
-  transform: rotate(-45deg);
-}
-
-/* =========================================================
-  NAV (MOBILE)
-========================================================= */
-
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
-
-  .global-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 16px;
-    left: 16px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
-    flex-direction: column;
-    padding: 12px 0;
-  }
-
-  .global-nav.open {
-    display: flex;
-  }
-
-  .global-nav a {
-    padding: 10px 18px;
-    font-size: 0.95rem;
-  }
-}
-
-/* modal overlay */
-.nav-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
-  z-index: 900;
-}
-
-.nav-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* layering */
-.global-nav {
-  z-index: 1000;
-}
-
-.nav-toggle {
-  z-index: 1001;
-}
-
 /* =========================================================
   PAGE HERO (COMMON)
 ========================================================= */
@@ -809,6 +618,7 @@ body {
 
 .page-hero-inner {
   max-width: 900px;
+  text-align: left;
 }
 
 .page-hero-tag {
@@ -828,29 +638,14 @@ body {
 }
 
 /* =========================================================
-  PAGE HERO TEXT ALIGN (DEFAULT)
-========================================================= */
-
-.page-hero-inner {
-  text-align: left;
-}
-
-
-/* =========================================================
   PROFESSOR PAGE
 ========================================================= */
 
 .page-hero.page-hero-professor {
   background-image: url("images/professorhero.png");
   background-size: cover;
-  background-position: center top; /* PC は上寄せ */
+  background-position: center top;
   color: #111;
-}
-
-@media (max-width: 768px) {
-  .page-hero.page-hero-professor {
-    background-position: center center; /* 真ん中で切り抜く */
-  }
 }
 
 .professor-photo {
@@ -933,7 +728,7 @@ body {
 }
 
 .professor-block {
-  margin-bottom: 96px; /* セクション間の余白 */
+  margin-bottom: 96px;
 }
 
 .professor-section-title {
@@ -956,7 +751,7 @@ body {
 .professor-lead {
   font-size: 1.05rem;
   color: #555;
-  margin-bottom: 0px; /* ← ここが「余白足りない」問題の核心 */
+  margin-bottom: 0px;
   line-height: 1.8;
 }
 
@@ -965,6 +760,12 @@ body {
   border-radius: 16px;
   padding: 40px 48px;
   line-height: 1.9;
+}
+
+.paper-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .paper-list li {
@@ -997,12 +798,6 @@ body {
   font-weight: 500;
 }
 
-.paper-list {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
-}
-
 .professor-message-box {
   background: #fafafa;
   border-radius: 16px;
@@ -1021,30 +816,6 @@ body {
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .professor-message-box {
-    padding: 32px 24px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .professor-layout {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .professor-photo {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 12px;
-  }
-
-  .page-title {
-    font-size: 2rem;
-  }
-}
-
 /* =========================================================
   RECRUIT HERO
 ========================================================= */
@@ -1057,15 +828,6 @@ body {
   height: 360px;
   display: flex;
   align-items: center;
-}
-
-@media (max-width: 768px) {
-  .page-hero-recruit {
-    aspect-ratio: 16 / 9;
-    height: auto;
-    min-height: 300px;
-    background-position: center center;
-  }
 }
 
 .page-hero-recruit::before {
@@ -1084,8 +846,8 @@ body {
 .page-hero-recruit .page-hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 720px; /* ← 横幅を絞る */
-  margin-left: 80px; /* ← しっかり左へ */
+  max-width: 720px;
+  margin-left: 80px;
   color: #ffffff;
 }
 
@@ -1097,45 +859,26 @@ body {
     0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
-@media (max-width: 768px) {
-  .page-hero-recruit {
-    align-items: flex-start;
-  }
-
-  .page-hero-recruit .page-hero-inner {
-    margin-left: 0;
-    padding: 0 24px;
-    text-align: left;
-  }
-}
-/* =========================
-   RECRUIT hero - mobile fix
-========================= */
-@media (max-width: 768px) {
-  .page-hero-recruit {
-    aspect-ratio: auto;              /* ← 3/4 を無効化 */
-    height: clamp(320px, 45vh, 400px); /* ← これが効く：端末差でも破綻しにくい */
-    min-height: 0;                   /* ← 520px縛りを解除 */
-  }
-
-  .page-hero-recruit .page-hero-inner {
-    margin-left: 0;                  /* ← スマホで左余白を殺す */
-    padding: 0 24px;
-    max-width: 520px;                /* ← 文字幅が広がりすぎない */
-  }
-}
-
-
 /* =========================================================
   RECRUIT CARDS
 ========================================================= */
 
-.recruit-card {
-  text-align: center;
-}
-
 .recruit-method {
   max-width: 980px;
+}
+
+.recruit-card {
+  text-align: center;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 22px 20px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.recruit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
 }
 
 .recruit-lead {
@@ -1152,19 +895,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
-}
-
-.recruit-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 22px 22px 20px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.recruit-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
 }
 
 .recruit-step {
@@ -1224,26 +954,6 @@ body {
   background: #111;
 }
 
-@media (max-width: 768px) {
-  .recruit-lead {
-    font-size: 0.98rem;
-  }
-
-  .recruit-card {
-    padding: 20px 18px 18px;
-  }
-}
-
-@media (max-width: 768px) {
-  .recruit-section-title {
-    font-size: 1.8rem;
-  }
-
-  .recruit-section-title::after {
-    width: 40px;
-  }
-}
-
 /* =========================================================
   PDF CARDS
 ========================================================= */
@@ -1254,9 +964,9 @@ body {
 
 .pdf-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* ★2列 */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
-  max-width: 900px; /* 少し広げて2列でも窮屈に見えないように */
+  max-width: 900px;
   margin-top: 24px;
 }
 
@@ -1264,7 +974,7 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 16px; /* ★少し小さめ */
+  padding: 14px 16px;
   border-radius: 10px;
   background: #ffffff;
   text-decoration: none;
@@ -1280,7 +990,7 @@ body {
 
 .pdf-icon {
   flex-shrink: 0;
-  width: 42px; /* ★アイコンも少し小さく */
+  width: 42px;
   height: 52px;
   border-radius: 9px;
   background: linear-gradient(135deg, #4f5bff, #7c8cff);
@@ -1331,23 +1041,6 @@ body {
   background: #111;
 }
 
-@media (max-width: 768px) {
-  .pdf-grid {
-    grid-template-columns: 1fr; /* ★1列 */
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .pdf-section-title {
-    font-size: 1.8rem;
-  }
-
-  .pdf-section-title::after {
-    width: 40px;
-  }
-}
-
 /* =========================================================
   FAQ (RECRUIT)
 ========================================================= */
@@ -1389,7 +1082,7 @@ body {
 }
 
 .faq-item[open] summary::after {
-  transform: rotate(45deg); /* ＋が×っぽくなる */
+  transform: rotate(45deg);
 }
 
 .faq-item p {
@@ -1435,45 +1128,6 @@ body {
 }
 
 /* =========================================================
-  HEADER NAV (CURRENT)
-========================================================= */
-
-.nav-current {
-  font-weight: 600;
-}
-
-.nav-current::after {
-  width: 100%;
-}
-
-/* =========================================================
-  SUB PAGE RESPONSIVE
-========================================================= */
-
-@media (max-width: 768px) {
-  .page-hero {
-    padding: 56px 0 48px;
-  }
-
-  .page-hero-title {
-    font-size: 1.9rem;
-  }
-
-  .entry-card {
-    padding: 24px 20px;
-  }
-
-  .entry-row {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .entry-row dt {
-    width: auto;
-  }
-}
-
-/* =========================================================
   NEWS PAGE (LIST / HERO)
 ========================================================= */
 
@@ -1505,7 +1159,7 @@ body {
   position: relative;
   z-index: 2;
   max-width: 900px;
-  margin-left: 140px; /* ← ここで左に寄せる */
+  margin-left: 140px;
 }
 
 .news-section {
@@ -1518,6 +1172,10 @@ body {
   gap: 18px;
   max-width: 880px;
   margin: 0 auto;
+
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
 }
 
 .news-item {
@@ -1608,6 +1266,8 @@ body {
   border: 1px solid #ddd;
   background: #fff;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .news-filter-btn.is-active {
@@ -1616,56 +1276,16 @@ body {
   color: #fff;
 }
 
-.news-filter-btn {
-  transition: background 0.2s ease, color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-@media (max-width: 768px) {
-  .page-hero-news .page-hero-inner {
-    margin-left: 0;
-    padding: 0 24px;
-    text-align: left;
-  }
-
-  .news-item {
-    grid-template-columns: 1fr;
-  }
-
-  .news-date {
-    font-size: 0.85rem;
-    color: #888;
-  }
-}
-
-/* =========================================================
-  NEWS LIST SCROLLBAR
-========================================================= */
-
-.news-list {
-  max-height: 520px;
-  overflow-y: auto;
-  padding-right: 6px;
-}
-
+/* scrollbar */
 .news-list::-webkit-scrollbar {
   width: 6px;
 }
-
 .news-list::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.15);
   border-radius: 999px;
 }
-
 .news-list::-webkit-scrollbar-track {
   background: transparent;
-}
-
-@media (max-width: 768px) {
-  .news-list {
-    max-height: none;
-    overflow: visible;
-  }
 }
 
 /* =========================================================
@@ -1682,7 +1302,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* ここで暗さを調整（0.45 はちょい暗め） */
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .page-hero--about .page-hero-inner,
@@ -1703,12 +1323,11 @@ body {
 
 .page-hero-about {
   position: relative;
-  background-image: url("images/about-hero.png"); /* ← 好きな写真 */
+  background-image: url("images/about-hero.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 360px;
-
   display: flex;
   align-items: center;
 }
@@ -1730,25 +1349,44 @@ body {
   position: relative;
   z-index: 2;
   color: #fff;
-  margin-left: 120px; /* 左に寄せたいなら */
+  margin-left: 120px;
 }
 
-@media (max-width: 768px) {
-  .page-hero-about {
-    align-items: flex-start;
-  }
-
-  .page-hero-about .page-hero-inner {
-    margin-left: 0;
-    padding: 0 24px;
-    text-align: left;
-  }
+.section-about {
+  padding: 120px 0 80px;
 }
 
+.about-intro {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ※ここが重要：共通 .section-eyebrow を上書きしない */
+.about-intro .section-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  margin-bottom: 20px;
+}
+
+.about-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  margin-bottom: 28px;
+}
+
+.about-lead {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #555;
+  margin-bottom: 64px;
+}
 
 .about-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2×2 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
@@ -1763,8 +1401,8 @@ body {
 
 .about-gallery-item img {
   width: 100%;
-  height: 260px; /* ★ 全カード同じ高さ */
-  object-fit: cover; /* はみ出しをトリミング */
+  height: 260px;
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
@@ -1793,41 +1431,6 @@ body {
 
 .about-gallery-item:hover img {
   transform: scale(1.06);
-}
-
-@media (max-width: 900px) {
-  .about-gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-gallery-item img {
-    height: 220px;
-  }
-}
-
-.section-about {
-  padding: 120px 0 80px;
-}
-
-.about-intro {
-  max-width: 760px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.section-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.28em;
-  color: #999;
-  margin-bottom: 20px;
-}
-
-.about-title {
-  font-size: 2.6rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 1.25;
-  margin-bottom: 28px;
 }
 
 /* =========================================================
@@ -1939,7 +1542,7 @@ body {
 }
 
 .quiz-result.show {
-  max-height: 260px; /* 解説文の長さに合わせて必要なら増やす */
+  max-height: 260px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -1953,50 +1556,6 @@ body {
   font-size: 0.9rem;
   color: #4b5563;
   line-height: 1.7;
-}
-
-/* スマホ調整 */
-@media (max-width: 768px) {
-  .why-quiz {
-    padding: 56px 0 72px;
-  }
-
-  .why-quiz .quiz-title {
-    font-size: 1.35rem;
-    padding: 0 16px;
-  }
-
-  .why-quiz .quiz-lead {
-    padding: 0 16px;
-    text-align: left;
-  }
-
-  .quiz-card {
-    margin: 0 16px 28px;
-    padding: 20px 16px 18px;
-  }
-
-  .quiz-question {
-    font-size: 1rem;
-  }
-
-  .quiz-choice {
-    padding: 10px 14px;
-  }
-}
-
-@media (max-width: 768px) {
-  .quiz-title {
-    font-size: 1.35rem;
-  }
-}
-
-/* ABOUT lead（脇役） */
-.about-lead {
-  font-size: 1.05rem;
-  line-height: 2;
-  color: #555;
-  margin-bottom: 64px;
 }
 
 /* =========================================================
@@ -2046,7 +1605,256 @@ body {
   color: #555;
 }
 
+/* =========================================================
+  RESPONSIVE (<= 768px)
+========================================================= */
+
 @media (max-width: 768px) {
+  /* スマホだけ中央ぞろえ（現状維持） */
+  .section-title,
+  .section-lead {
+    text-align: center;
+  }
+
+  /* pc/sp */
+  .pc-only {
+    display: none;
+  }
+  .sp-only {
+    display: inline;
+  }
+  br.sp-only {
+    display: block;
+  }
+
+  /* hero home */
+  .hero {
+    padding: 88px 0;
+    min-height: 50vh;
+    background-position: center 40%;
+  }
+
+  .hero-inner {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0 24px;
+    max-width: none;
+    text-align: left;
+  }
+
+  .hero-overlay {
+    justify-content: flex-start;
+  }
+
+  .hero-tag {
+    font-size: 1rem;
+  }
+
+  .hero-inner h1 {
+    font-size: 2.4rem;
+  }
+
+  /* nav mobile */
+  .nav-toggle {
+    display: block;
+  }
+
+  .global-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 16px;
+    left: 16px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+    flex-direction: column;
+    padding: 12px 0;
+  }
+
+  .global-nav.open {
+    display: flex;
+  }
+
+  .global-nav a {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+
+  /* footer */
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-nav {
+    justify-content: flex-start;
+  }
+
+  .footer-sns {
+    justify-content: flex-start;
+  }
+
+  /* feature丸画像FIX（重複削除：ここだけに集約） */
+  .feature-card.feature-with-image {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .feature-card.feature-with-image .feature-image {
+    width: 110px !important;
+    height: 110px !important;
+    margin: 0 auto 12px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    flex: 0 0 auto !important;
+  }
+
+  .feature-card.feature-with-image .feature-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* professor hero */
+  .page-hero.page-hero-professor {
+    background-position: center center;
+  }
+
+  .professor-message-box {
+    padding: 32px 24px;
+    font-size: 1rem;
+  }
+
+  .professor-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .professor-photo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 12px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  /* recruit hero（最終FIX：clamp版を採用して一本化） */
+  .page-hero-recruit {
+    align-items: flex-start;
+    height: clamp(320px, 45vh, 400px);
+    background-position: center center;
+  }
+
+  .page-hero-recruit .page-hero-inner {
+    margin-left: 0;
+    padding: 0 24px;
+    text-align: left;
+    max-width: 520px;
+  }
+
+  /* recruit cards */
+  .recruit-lead {
+    font-size: 0.98rem;
+  }
+
+  .recruit-card {
+    padding: 20px 18px 18px;
+  }
+
+  .recruit-section-title {
+    font-size: 1.8rem;
+  }
+
+  .recruit-section-title::after {
+    width: 40px;
+  }
+
+  /* pdf */
+  .pdf-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .pdf-section-title {
+    font-size: 1.8rem;
+  }
+
+  .pdf-section-title::after {
+    width: 40px;
+  }
+
+  /* page hero common */
+  .page-hero {
+    padding: 56px 0 48px;
+  }
+
+  /* news */
+  .page-hero.page-hero-news .page-hero-inner {
+    margin-left: 0;
+    padding: 0 24px;
+    text-align: left;
+  }
+
+  .news-item {
+    grid-template-columns: 1fr;
+  }
+
+  .news-date {
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  .news-list {
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* about hero */
+  .page-hero-about {
+    align-items: flex-start;
+  }
+
+  .page-hero-about .page-hero-inner {
+    margin-left: 0;
+    padding: 0 24px;
+    text-align: left;
+  }
+
+  /* quiz */
+  .why-quiz {
+    padding: 56px 0 72px;
+  }
+
+  .why-quiz .quiz-title {
+    font-size: 1.35rem;
+    padding: 0 16px;
+  }
+
+  .why-quiz .quiz-lead {
+    padding: 0 16px;
+    text-align: left;
+  }
+
+  .quiz-card {
+    margin: 0 16px 28px;
+    padding: 20px 16px 18px;
+  }
+
+  .quiz-question {
+    font-size: 1rem;
+  }
+
+  .quiz-choice {
+    padding: 10px 14px;
+  }
+
+  /* timeline */
   .timeline-item {
     flex-direction: column;
     gap: 4px;
@@ -2059,59 +1867,15 @@ body {
 }
 
 /* =========================================================
-  HERO TEXT ALIGN FIX (MOBILE FINAL)
+  RESPONSIVE (<= 900px) : ABOUT gallery
 ========================================================= */
 
-@media (max-width: 768px) {
-
-  /* NEWS */
-  .page-hero.page-hero-news {
-    align-items: flex-start;
+@media (max-width: 900px) {
+  .about-gallery-grid {
+    grid-template-columns: 1fr;
   }
 
-  .page-hero.page-hero-news .page-hero-inner {
-    margin-left: 0;
-    padding: 0 24px;
-    text-align: left;
-  }
-
-  /* ABOUT（独立 hero） */
-  .page-hero-about {
-    align-items: flex-start;
-  }
-
-  .page-hero-about .page-hero-inner {
-    margin-left: 0;
-    padding: 0 24px;
-    text-align: left;
-  }
-
-  /* RECRUIT（独立 hero） */
-  .page-hero-recruit {
-    align-items: flex-start;
-  }
-
-  .page-hero-recruit .page-hero-inner {
-    margin-left: 0;
-    padding: 0 24px;
-    text-align: left;
+  .about-gallery-item img {
+    height: 220px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
